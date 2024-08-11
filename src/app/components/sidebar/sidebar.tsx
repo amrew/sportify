@@ -18,16 +18,18 @@ export type SidebarProps = {
 
 export function Sidebar(props: SidebarProps) {
   return (
-    <div className={sidebarStyle}>
-      <Card>
-        <Flex align="center" gap={1}>
-          <MenuSquare />
-          <Text size="large" weight="bold">
-            Kategori
-          </Text>
-        </Flex>
-        <Menu items={props.items} />
-      </Card>
+    <div>
+      <div className={sidebarStyle}>
+        <Card>
+          <Flex align="center" gap={1}>
+            <MenuSquare />
+            <Text size="large" weight="bold">
+              Kategori
+            </Text>
+          </Flex>
+          <Menu items={props.items} />
+        </Card>
+      </div>
     </div>
   );
 }

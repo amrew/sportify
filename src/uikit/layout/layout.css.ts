@@ -13,4 +13,5 @@ export const layoutStyle = style({
   margin: 0,
   padding: 0,
   marginTop: "1.2rem",
+  position: "relative",
 });

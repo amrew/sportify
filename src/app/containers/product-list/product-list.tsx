@@ -1,4 +1,4 @@
-import { ProductItemCard } from "../components/product/product-item-card";
+import { ProductItemCard } from "~/app/components/product-item";
 
 type Item = {
   id: number;

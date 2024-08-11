@@ -1,4 +1,4 @@
-import { ChevronRight, Share2, ThumbsUp } from "lucide-react";
+import { ChevronRight, MessageCircle, Share2, ThumbsUp } from "lucide-react";
 import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
@@ -55,12 +55,15 @@ export function ProductItemCard(props: ProductItemCardProps) {
         <Text color="gray">{item.description}</Text>
         <Flex full>
           <Flex gap={1} full>
-            <Button onClick={() => props.onLike(item)}>
+            <Button size="small" onClick={() => props.onLike(item)}>
               <Text size="small">{item.likes}</Text>
-              <ThumbsUp size={16} />
+              <ThumbsUp size={18} />
             </Button>
-            <Button onClick={() => props.onShare(item)}>
-              <Share2 size={16} />
+            <Button size="small" onClick={() => props.onShare(item)}>
+              <Share2 size={18} />
+            </Button>
+            <Button size="small" onClick={() => props.onShare(item)}>
+              <MessageCircle size={18} />
             </Button>
           </Flex>
           <Button color="primary" onClick={() => props.onReadMore(item)}>

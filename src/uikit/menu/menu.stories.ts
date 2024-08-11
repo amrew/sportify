@@ -14,8 +14,32 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Column: Story = {
   args: {
+    direction: "column",
+    items: [
+      {
+        id: 1,
+        name: "Running",
+        href: "/categories/running",
+      },
+      {
+        id: 2,
+        name: "Soccer",
+        href: "/categories/soccer",
+      },
+      {
+        id: 3,
+        name: "Basketball",
+        href: "/categories/basketball",
+      },
+    ],
+  },
+};
+
+export const Row: Story = {
+  args: {
+    direction: "row",
     items: [
       {
         id: 1,
