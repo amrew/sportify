@@ -7,3 +7,7 @@ export const imageStyle = style({
     transform: "scale(1.02)",
   },
 });
+
+export const avatarStyle = style({
+  borderRadius: "1.2rem",
+});

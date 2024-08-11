@@ -11,7 +11,7 @@ export const buttonStyle = recipe({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "0.6rem",
-    border: "1px solid transparent",
+    border: "none",
     transition: "all 0.3s",
     paddingLeft: "1rem",
     paddingRight: "1rem",
@@ -20,6 +20,7 @@ export const buttonStyle = recipe({
     fontWeight: 600,
     textDecorationLine: "none",
     color: "white",
+    boxShadow: `0 1px 4px 0 rgba(0, 0, 0, 0.1)`,
     ":active": {
       transform: "scale(0.85)",
     },
@@ -42,6 +43,10 @@ export const buttonStyle = recipe({
       },
       danger: {
         background: colors.danger,
+      },
+      ghost: {
+        background: "transparent",
+        boxShadow: "none",
       },
     },
     size: {

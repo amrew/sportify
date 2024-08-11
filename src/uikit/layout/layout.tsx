@@ -6,8 +6,9 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export function Layout(props: PropsWithChildren<LayoutProps>) {
+  const { leftNode, ...others } = props;
   return (
-    <div className={layoutStyle} {...props}>
+    <div className={layoutStyle} {...others}>
       {props.leftNode}
       {props.children}
     </div>

@@ -1,7 +1,65 @@
 import Head from "next/head";
 import { HomeScreen } from "~/app/screens/home-screen";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 
-export default function Home() {
+type Category = {
+  id: number;
+  slug: string;
+  name: string;
+};
+
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  image_url: string;
+  profile: {
+    name: string;
+    picture: string;
+  };
+};
+
+type HomeProps = {
+  categories: Array<Category> | null;
+  products: Array<Product> | null;
+};
+
+export const getServerSideProps = (async (ctx) => {
+  const supabase = createPagesServerClient(ctx);
+
+  const getCategories = async () => {
+    const { data: categories } = await supabase
+      .from("category")
+      .select<"*", Category>("*")
+      .is("parent_id", null);
+    return categories;
+  };
+
+  const getProducts = async () => {
+    const { data: products } = await supabase
+      .from("product")
+      .select<
+        any,
+        Product
+      >("id, name, description, image_url, profile(name,picture)")
+      .eq("status", true);
+    return products;
+  };
+
+  const [categories, products] = await Promise.all([
+    getCategories(),
+    getProducts(),
+  ]);
+  console.log(products);
+
+  return { props: { categories, products } };
+}) satisfies GetServerSideProps<HomeProps>;
+
+export default function Home({
+  categories,
+  products,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
@@ -10,7 +68,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeScreen />
+      <HomeScreen
+        categories={
+          categories?.map((cat) => ({
+            ...cat,
+            href: "/categories/" + cat.slug,
+          })) || []
+        }
+        products={
+          products?.map((product) => ({
+            id: product.id,
+            title: product.name,
+            description: product.description,
+            imageUrl: product.image_url,
+            likes: 0,
+            tags: [],
+            author: product.profile
+              ? {
+                  name: product.profile.name,
+                  avatar: product.profile.picture,
+                }
+              : undefined,
+          })) || []
+        }
+      />
     </>
   );
 }

@@ -3,7 +3,7 @@ import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
-import { imageStyle } from "./product-item-card.css";
+import { avatarStyle, imageStyle } from "./product-item-card.css";
 import { Tag } from "~/uikit/tag";
 
 type Item = {
@@ -32,13 +32,17 @@ export function ProductItemCard(props: ProductItemCardProps) {
     <Card>
       <Flex direction="column" gap={2}>
         {item.author ? (
-          <Flex gap={2}>
-            <img src={item.author.avatar} alt="Author" width={48} height={48} />
+          <Flex gap={2} align="center">
+            <img
+              src={item.author.avatar}
+              alt="Author"
+              width={34}
+              height={34}
+              className={avatarStyle}
+            />
             <Flex direction="column">
-              <Text size="small">Reviewer</Text>
-              <Text size="large" weight="bold">
-                {item.author.name}
-              </Text>
+              <Text size="small">Author</Text>
+              <Text weight="bold">{item.author.name}</Text>
             </Flex>
           </Flex>
         ) : null}
