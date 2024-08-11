@@ -14,4 +14,12 @@ export const layoutStyle = style({
   padding: 0,
   marginTop: "1.2rem",
   position: "relative",
+  "@media": {
+    "(max-width: 767px)": {
+      flexDirection: "column",
+    },
+    "(min-width: 768px)": {
+      flexDirection: "row",
+    },
+  },
 });

@@ -1,4 +1,8 @@
 import { ProductItemCard } from "~/app/components/product-item";
+import { Flex } from "~/uikit/flex/flex";
+import { Select } from "~/uikit/select/select";
+import { Text } from "~/uikit/text";
+import { filterContainerStyle } from "./product-list.css";
 
 type Item = {
   id: number;
@@ -10,6 +14,7 @@ type Item = {
   title: string;
   description: string;
   likes: number;
+  tags?: string[];
 };
 
 export type ProductListProps = {
@@ -27,16 +32,39 @@ export function ProductList(props: ProductListProps) {
     // Redirect to item page
   };
   return (
-    <div style={{ flex: 1 }}>
-      {props.items.map((item) => (
-        <ProductItemCard
-          key={item.id}
-          item={item}
-          onLike={onLike}
-          onShare={onShare}
-          onReadMore={onReadMore}
-        />
-      ))}
+    <div>
+      <div className={filterContainerStyle}>
+        <Flex align="center" gap={1}>
+          <Text>Sort</Text>
+          <Select
+            options={[
+              {
+                label: "Latest",
+                value: "latest",
+              },
+              {
+                label: "Popular",
+                value: "popular",
+              },
+              {
+                label: "Price",
+                value: "price",
+              },
+            ]}
+          />
+        </Flex>
+      </div>
+      <div style={{ flex: 1 }}>
+        {props.items.map((item) => (
+          <ProductItemCard
+            key={item.id}
+            item={item}
+            onLike={onLike}
+            onShare={onShare}
+            onReadMore={onReadMore}
+          />
+        ))}
+      </div>
     </div>
   );
 }

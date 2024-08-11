@@ -4,6 +4,7 @@ import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { imageStyle } from "./product-item-card.css";
+import { Tag } from "~/uikit/tag";
 
 type Item = {
   id: number;
@@ -15,6 +16,7 @@ type Item = {
   title: string;
   description: string;
   likes: number;
+  tags?: string[];
 };
 
 export type ProductItemCardProps = {
@@ -33,7 +35,7 @@ export function ProductItemCard(props: ProductItemCardProps) {
           <Flex gap={2}>
             <img src={item.author.avatar} alt="Author" width={48} height={48} />
             <Flex direction="column">
-              <Text size="small">Author</Text>
+              <Text size="small">Reviewer</Text>
               <Text size="large" weight="bold">
                 {item.author.name}
               </Text>
@@ -52,7 +54,20 @@ export function ProductItemCard(props: ProductItemCardProps) {
         <Text size="xlarge" weight="bold">
           {item.title}
         </Text>
-        <Text color="gray">{item.description}</Text>
+        {item.tags ? (
+          <Flex gap={1}>
+            {item.tags.map((tag) => (
+              <Tag key={tag} size="small">
+                {tag}
+              </Tag>
+            ))}
+          </Flex>
+        ) : null}
+        <Flex>
+          <Text color="gray" clamp={3}>
+            {item.description}
+          </Text>
+        </Flex>
         <Flex full>
           <Flex gap={1} full>
             <Button size="small" onClick={() => props.onLike(item)}>

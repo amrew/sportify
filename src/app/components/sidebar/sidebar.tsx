@@ -1,9 +1,11 @@
 import { Card } from "~/uikit/card";
 import { Text } from "~/uikit/text";
-import { sidebarStyle } from "./sidebar.css";
+import { sidebarStyle, toggleButtonStyle } from "./sidebar.css";
 import { Menu } from "~/uikit/menu/menu";
 import { Flex } from "~/uikit/flex/flex";
-import { MenuSquare } from "lucide-react";
+import { ChevronDown, ChevronUp, MenuSquare } from "lucide-react";
+import { Button } from "~/uikit/button";
+import { useState } from "react";
 
 type Item = {
   id: number;
@@ -17,17 +19,25 @@ export type SidebarProps = {
 };
 
 export function Sidebar(props: SidebarProps) {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div>
       <div className={sidebarStyle}>
         <Card>
           <Flex align="center" gap={1}>
-            <MenuSquare />
-            <Text size="large" weight="bold">
-              Kategori
-            </Text>
+            <Flex align="center" gap={1} full>
+              <MenuSquare />
+              <Text size="large" weight="bold">
+                Category
+              </Text>
+            </Flex>
+            <div className={toggleButtonStyle}>
+              <Button size="small" onClick={() => setIsOpen((prev) => !prev)}>
+                {isOpen ? <ChevronUp /> : <ChevronDown size={16} />}
+              </Button>
+            </div>
           </Flex>
-          <Menu items={props.items} />
+          {isOpen ? <Menu items={props.items} /> : null}
         </Card>
       </div>
     </div>

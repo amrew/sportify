@@ -53,8 +53,10 @@ export function HomeScreen() {
                 imageUrl:
                   "https://images.tokopedia.net/img/cache/900/VqbcmM/2024/8/8/a1190e71-7363-4e42-b3c3-5fda2149e809.jpg",
                 title: "MILLS Sepatu Revolt Raze",
-                description: "Description",
+                description:
+                  "Dirancang untuk Para pengguna sepatu lifestyle yang memerlukan gaya yang sporty tetapi basic untuk digunakan untuk sekolah maupun berkerja. Material upper sepatu yang diperbarui menggunakan perpaduan sintetis dan mesh mengakomodir pengguna yang memerlukan sepatu yang diguanakn sehari-hari di jangka waktu yang panjang.",
                 likes: 69,
+                tags: ["running", "sport"],
               },
               {
                 id: 2,

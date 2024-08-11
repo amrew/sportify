@@ -55,6 +55,29 @@ export const textStyle = recipe({
         fontWeight: "bold",
       },
     },
+    clamp: {
+      1: {
+        overflow: "hidden",
+        "text-overflow": "ellipsis",
+        display: "-webkit-box",
+        "-webkit-line-clamp": "1",
+        "-webkit-box-orient": "vertical",
+      },
+      2: {
+        overflow: "hidden",
+        "text-overflow": "ellipsis",
+        display: "-webkit-box",
+        "-webkit-line-clamp": "2",
+        "-webkit-box-orient": "vertical",
+      },
+      3: {
+        overflow: "hidden",
+        "text-overflow": "ellipsis",
+        display: "-webkit-box",
+        "-webkit-line-clamp": "3",
+        "-webkit-box-orient": "vertical",
+      },
+    },
   },
   defaultVariants: {
     color: "default",

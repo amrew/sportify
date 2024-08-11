@@ -33,6 +33,7 @@ export const Default: Story = {
       title: "Product",
       description: "Description",
       likes: 69,
+      tags: ["running", "shoes"],
     },
     onLike: () => {},
     onShare: () => {},
