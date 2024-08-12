@@ -1,40 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Overview
 
-## Getting Started
+The project is named "sportify" and is currently in version "0.1.0." It is a private project and utilizes the Next.js framework, focusing on server-side rendering (SSR) and static site generation (SSG). The project is designed to create a modern, interactive sports-related web application.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: This is the core framework used, enabling both server-side rendering and static site generation. It simplifies building React applications with optimized performance and SEO capabilities.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **React**: The frontend is built using React, a JavaScript library for creating user interfaces, particularly single-page applications.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Supabase**: Supabase is integrated for backend functionalities, particularly for authentication and database management. It serves as a real-time, open-source alternative to Firebase.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **Vanilla Extract**: Vanilla Extract is a CSS preprocessor that leverages TypeScript instead of traditional CSS or Sass syntax. It allows you to write your styles in TypeScript, enabling you to take advantage of TypeScript's type safety, autocompletion, and modularity. This approach makes it easier to manage and scale your styles, especially in large applications. Vanilla Extract compiles your TypeScript-based styles into static CSS at build time, ensuring zero runtime overhead and maintaining a high-performance user experience.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Storybook**: The project includes Storybook for UI component development and testing in isolation. This helps in building and maintaining UI components without running the full application.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **TypeScript**: TypeScript is used for static typing, which improves code quality and developer productivity by catching errors early in the development process.
 
-## Learn More
+- **ESLint**: ESLint is used for maintaining code quality and enforcing coding standards.
 
-To learn more about Next.js, take a look at the following resources:
+## How to Run the Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Development Mode:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Run npm run dev to start the Next.js development server.
+  The application will be available at http://localhost:3000.
 
-## Deploy on Vercel
+### Production Build:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Run npm run build to create an optimized production build.
+  Run npm start to serve the production build.
+  Linting:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Run npm run lint to analyze and enforce code quality.
+
+### Storybook:
+
+Run npm run storybook to start the Storybook server at http://localhost:6006.
+Run npm run build-storybook to build the Storybook UI for production.
