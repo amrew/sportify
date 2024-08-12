@@ -1,21 +1,8 @@
-import { ProductItem } from "~/app/product-item";
+import { ProductItem, type Item } from "~/app/product-item";
 import { Flex } from "~/uikit/flex/flex";
 import { Select } from "~/uikit/select/select";
 import { Text } from "~/uikit/text";
 import { filterContainerStyle } from "./product-list.css";
-
-type Item = {
-  id: number;
-  author?: {
-    name: string;
-    avatar: string;
-  };
-  imageUrl: string;
-  title: string;
-  description: string;
-  likes: number;
-  tags?: string[];
-};
 
 export type ProductListProps = {
   items: Item[];
@@ -28,8 +15,8 @@ export function ProductList(props: ProductListProps) {
   const onShare = (item: Item) => {
     console.log("Shared", item);
   };
-  const onReadMore = (item: Item) => {
-    // Redirect to item page
+  const getHref = (item: Item) => {
+    return `/product/${item.slug}`;
   };
   return (
     <div>
@@ -66,7 +53,7 @@ export function ProductList(props: ProductListProps) {
             item={item}
             onLike={onLike}
             onShare={onShare}
-            onReadMore={onReadMore}
+            getHref={getHref}
           />
         ))}
       </Flex>

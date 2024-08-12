@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "~/uikit/link";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
 import { Button } from "~/uikit/button";

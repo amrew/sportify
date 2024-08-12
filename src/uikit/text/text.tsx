@@ -5,10 +5,19 @@ export type TextProps = HTMLAttributes<HTMLSpanElement> &
   Parameters<typeof textStyle>[0];
 
 export function Text(props: PropsWithChildren<TextProps>) {
-  const { color, size, weight, clamp, textAlign } = props;
+  const { color, size, weight, clamp, textAlign, textDecoration, whiteSpace } =
+    props;
   return (
     <span
-      className={textStyle({ color, size, weight, clamp, textAlign })}
+      className={textStyle({
+        color,
+        size,
+        weight,
+        clamp,
+        textAlign,
+        textDecoration,
+        whiteSpace,
+      })}
       {...props}
     >
       {props.children}

@@ -1,38 +1,35 @@
-import { ChevronRight, MessageCircle, Share2, ThumbsUp } from "lucide-react";
+import { MessageCircle, Share2, ThumbsUp } from "lucide-react";
 import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
-import { avatarStyle, imageStyle } from "./product-item.css";
 import { Tag } from "~/uikit/tag";
-import { Media } from "~/uikit/media";
-import { Link } from "~/uikit/link";
+import { avatarStyle, imageStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
 
-export type Item = {
+export type DetailItem = {
   id: number;
   slug: string;
   author?: {
     name: string;
     avatar: string;
   };
-  imageUrl: string;
   title: string;
   description: string;
   likes: number;
   tags?: string[];
+  imageUrl: string;
+  additionalImageUrls: string[];
 };
 
-export type ProductItemProps = {
-  item: Item;
-  onLike: (item: Item) => void;
-  onShare: (item: Item) => void;
-  getHref: (item: Item) => string;
+type ProductDetailProps = {
+  item: DetailItem;
+  onLike: (item: DetailItem) => void;
+  onShare: (item: DetailItem) => void;
 };
 
-export function ProductItem(props: ProductItemProps) {
+export function ProductDetail(props: ProductDetailProps) {
   const { item } = props;
-  const href = props.getHref(item);
   return (
     <Card>
       <Flex direction="column" gap={4}>
@@ -51,22 +48,16 @@ export function ProductItem(props: ProductItemProps) {
             </Flex>
           </Flex>
         ) : null}
-        {item.imageUrl ? (
-          <Link href={href}>
-            <Image
-              src={item.imageUrl}
-              alt="Product"
-              width="100%"
-              height={320}
-              objectFit="contain"
-            />
-          </Link>
-        ) : null}
-        <Link href={href}>
-          <Text size="xlarge" weight="bold">
-            {item.title}
-          </Text>
-        </Link>
+        <Image
+          src={item.imageUrl}
+          alt="Product"
+          width="100%"
+          height={320}
+          objectFit="contain"
+        />
+        <Text size="xlarge" weight="bold">
+          {item.title}
+        </Text>
         {item.tags ? (
           <Flex gap={4}>
             {item.tags.map((tag) => (
@@ -77,11 +68,7 @@ export function ProductItem(props: ProductItemProps) {
           </Flex>
         ) : null}
         <Flex>
-          <Link href={href}>
-            <Text color="gray" clamp={3}>
-              {item.description}
-            </Text>
-          </Link>
+          <Text color="gray">{item.description}</Text>
         </Flex>
         <Flex full>
           <Flex gap={3} full>
@@ -95,14 +82,6 @@ export function ProductItem(props: ProductItemProps) {
               <MessageCircle size={18} />
             </Button>
           </Flex>
-          <Link href={href}>
-            <Button color="primary">
-              <Media smallMobile={false} mobile tablet desktop>
-                <Text color="white">Read More</Text>
-              </Media>
-              <ChevronRight />
-            </Button>
-          </Link>
         </Flex>
       </Flex>
     </Card>

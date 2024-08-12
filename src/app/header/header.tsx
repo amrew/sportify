@@ -9,7 +9,7 @@ import { LogIn } from "lucide-react";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import getConfig from "next/config";
 import { Media } from "~/uikit/media";
-import Link from "next/link";
+import { Link } from "~/uikit/link";
 
 const { publicRuntimeConfig } = getConfig();
 

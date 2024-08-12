@@ -89,10 +89,27 @@ export const textStyle = recipe({
         textAlign: "right",
       },
     },
+    textDecoration: {
+      underline: {
+        textDecoration: "underline",
+      },
+      none: {
+        textDecoration: "none",
+      },
+    },
+    whiteSpace: {
+      nowrap: {
+        whiteSpace: "nowrap",
+      },
+      preLine: {
+        whiteSpace: "pre-line",
+      },
+    },
   },
   defaultVariants: {
     color: "default",
     size: "medium",
     weight: "regular",
+    textDecoration: "none",
   },
 });

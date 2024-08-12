@@ -25,6 +25,7 @@ export const Default: Story = {
   args: {
     item: {
       id: 1,
+      slug: "product",
       author: {
         name: "John Doe",
         avatar: "https://placehold.co/96x96",
@@ -37,6 +38,6 @@ export const Default: Story = {
     },
     onLike: () => {},
     onShare: () => {},
-    onReadMore: () => {},
+    getHref: () => "/",
   },
 };

@@ -3,6 +3,8 @@ import { Home } from "~/app/home";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { useMemo } from "react";
+import { Footer } from "~/app/footer";
+import { Header } from "~/app/header";
 
 type Category = {
   id: number;
@@ -24,6 +26,7 @@ type Product = {
   name: string;
   description: string;
   image_url: string;
+  slug: string;
   profile: {
     name: string;
     picture: string;
@@ -60,7 +63,7 @@ export const getServerSideProps = (async (ctx) => {
       .select<
         any,
         Product
-      >("id, name, description, image_url, profile(name,picture)")
+      >("id, name, description, image_url, slug, profile(name,picture)")
       .eq("status", true);
     return products;
   };
@@ -99,6 +102,7 @@ export default function HomePage(
         title: product.name,
         description: product.description,
         imageUrl: product.image_url,
+        slug: product.slug,
         likes: 0,
         tags: [],
         author: product.profile
@@ -132,7 +136,9 @@ export default function HomePage(
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <Home categories={categories} products={products} banners={banners} />
+      <Footer />
     </>
   );
 }

@@ -1,5 +1,4 @@
 import { Container } from "~/uikit/container/container";
-import { Header } from "~/app/header";
 import { Sidebar } from "~/app/sidebar";
 import { Layout } from "~/uikit/layout";
 import { ProductList } from "~/app/product-list";
@@ -21,6 +20,7 @@ export type HomeProps = {
   }[];
   products: {
     id: number;
+    slug: string;
     author?: {
       name: string;
       avatar: string;
@@ -36,7 +36,6 @@ export type HomeProps = {
 export function Home(props: HomeProps) {
   return (
     <main>
-      <Header />
       {props.banners.length ? (
         <Slider
           items={props.banners.map((banner) => ({

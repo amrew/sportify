@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";
 import { useState } from "react";
+import NextProgress from "next-progress";
 
 function App({
   Component,
@@ -20,6 +21,7 @@ function App({
       supabaseClient={supabaseClient}
       initialSession={pageProps.initialSession}
     >
+      <NextProgress />
       <Component {...pageProps} />
     </SessionContextProvider>
   );

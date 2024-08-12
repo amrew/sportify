@@ -30,14 +30,25 @@ export const aStyle = recipe({
     paddingTop: ".8rem",
     paddingBottom: ".8rem",
     transition: "all 0.3s",
-    backgroundColor: "#f3f3f3",
-    border: "1px solid #eaeaea",
-    borderRadius: ".8rem",
-    ":hover": {
-      backgroundColor: "#eaeaea",
-    },
   },
   variants: {
+    variant: {
+      simple: {
+        backgroundColor: "transparent",
+        border: "none",
+        ":hover": {
+          backgroundColor: "transparent",
+        },
+      },
+      fancy: {
+        backgroundColor: "#f3f3f3",
+        border: "1px solid #eaeaea",
+        borderRadius: ".8rem",
+        ":hover": {
+          backgroundColor: "#eaeaea",
+        },
+      },
+    },
     direction: {
       row: {
         ":hover": {
@@ -53,5 +64,6 @@ export const aStyle = recipe({
   },
   defaultVariants: {
     direction: "column",
+    variant: "fancy",
   },
 });
