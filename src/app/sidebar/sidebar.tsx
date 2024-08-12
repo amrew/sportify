@@ -24,16 +24,16 @@ export function Sidebar(props: SidebarProps) {
     <div>
       <div className={sidebarStyle}>
         <Card>
-          <Flex align="center" gap={1}>
-            <Flex align="center" gap={1} full>
+          <Flex align="center" gap={4}>
+            <Flex align="center" gap={4} full>
               <MenuSquare />
               <Text size="large" weight="bold">
                 Category
               </Text>
             </Flex>
             <div className={toggleButtonStyle}>
-              <Button size="small" onClick={() => setIsOpen((prev) => !prev)}>
-                {isOpen ? <ChevronUp /> : <ChevronDown size={16} />}
+              <Button size="sm" onClick={() => setIsOpen((prev) => !prev)}>
+                {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               </Button>
             </div>
           </Flex>

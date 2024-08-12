@@ -16,6 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    size: "xs",
     children: "Hellow",
   },
 };
@@ -23,6 +24,7 @@ export const Default: Story = {
 export const Primary: Story = {
   args: {
     color: "primary",
+    size: "sm",
     children: "Hellow",
   },
 };
@@ -37,6 +39,7 @@ export const Secondary: Story = {
 export const Accent: Story = {
   args: {
     color: "accent",
+    size: "lg",
     children: "Hellow",
   },
 };
@@ -44,6 +47,7 @@ export const Accent: Story = {
 export const Danger: Story = {
   args: {
     color: "danger",
+    size: "xl",
     children: "Hellow",
   },
 };

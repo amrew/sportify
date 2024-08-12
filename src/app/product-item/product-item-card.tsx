@@ -31,9 +31,9 @@ export function ProductItemCard(props: ProductItemCardProps) {
   const { item } = props;
   return (
     <Card>
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={4}>
         {item.author ? (
-          <Flex gap={2} align="center">
+          <Flex gap={4} align="center">
             <img
               src={item.author.avatar}
               alt="Author"
@@ -60,7 +60,7 @@ export function ProductItemCard(props: ProductItemCardProps) {
           {item.title}
         </Text>
         {item.tags ? (
-          <Flex gap={1}>
+          <Flex gap={4}>
             {item.tags.map((tag) => (
               <Tag key={tag} size="small">
                 {tag}
@@ -74,14 +74,14 @@ export function ProductItemCard(props: ProductItemCardProps) {
           </Text>
         </Flex>
         <Flex full>
-          <Flex gap={1} full>
-            <Button size="small" onClick={() => props.onLike(item)}>
+          <Flex gap={3} full>
+            <Button size="sm" onClick={() => props.onLike(item)}>
               <ThumbsUp size={18} />
             </Button>
-            <Button size="small" onClick={() => props.onShare(item)}>
+            <Button size="sm" onClick={() => props.onShare(item)}>
               <Share2 size={18} />
             </Button>
-            <Button size="small" onClick={() => props.onShare(item)}>
+            <Button size="sm" onClick={() => props.onShare(item)}>
               <MessageCircle size={18} />
             </Button>
           </Flex>

@@ -1,10 +1,10 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
-import { flexStyle } from "./flex.css";
+import { flexStyle } from "./box.css";
 
-type FlexProps = HTMLAttributes<HTMLDivElement> &
+type BoxProps = HTMLAttributes<HTMLDivElement> &
   Parameters<typeof flexStyle>[0];
 
-export function Flex(props: PropsWithChildren<FlexProps>) {
+export function Box(props: PropsWithChildren<BoxProps>) {
   const {
     direction,
     justify,

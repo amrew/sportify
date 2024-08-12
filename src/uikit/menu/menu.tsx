@@ -21,7 +21,7 @@ export function Menu(props: MenuProps) {
       {props.items.map((item) => (
         <li key={item.id}>
           <Link href={item.href} className={aStyle({ direction })}>
-            <Flex align="center" gap={1}>
+            <Flex align="center" gap={2}>
               <Text>{item.name}</Text>
             </Flex>
           </Link>

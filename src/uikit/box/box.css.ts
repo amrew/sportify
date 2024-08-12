@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { size, sprinkles } from "~/styles/config.css";
+import { size } from "~/styles/config.css";
 import { spreadConfig } from "~/utils/styleUtils";
 
 export const flexStyle = recipe({
@@ -7,6 +7,12 @@ export const flexStyle = recipe({
     display: "flex",
   },
   variants: {
+    display: {
+      flex: { display: "flex" },
+      inlineFlex: { display: "inline-flex" },
+      block: { display: "block" },
+      inlineBlock: { display: "inline-block" },
+    },
     full: {
       true: {
         flex: "1",
@@ -52,5 +58,6 @@ export const flexStyle = recipe({
     wrap: "nowrap",
     align: "stretch",
     justify: "start",
+    display: "block",
   },
 });

@@ -44,7 +44,7 @@ export function Header(props: HeaderProps) {
   return (
     <header className={headerStyle} {...props}>
       <Container>
-        <Flex align="center" full gap={3} pl={2} pr={2} pt={1} pb={1}>
+        <Flex align="center" full gap={8} pl={2} pr={2} pt={1} pb={1}>
           <img
             src="/sportify1.png"
             alt="Sportify Logo"
@@ -69,10 +69,10 @@ export function Header(props: HeaderProps) {
             />
           </Media>
         </Flex>
-        <Flex gap={1} align="center">
+        <Flex gap={4} align="center">
           {!user ? (
             <Button
-              size="small"
+              size="sm"
               onClick={() => {
                 handleLoginWithGoogle();
               }}
@@ -80,10 +80,10 @@ export function Header(props: HeaderProps) {
               <Text>Login</Text>
             </Button>
           ) : (
-            <Flex gap={2} align="center">
+            <Flex gap={4} align="center">
               <Text>{user.user_metadata?.name}</Text>
               <Button
-                size="small"
+                size="sm"
                 color="ghost"
                 onClick={() => {
                   handleLogout();
@@ -94,7 +94,7 @@ export function Header(props: HeaderProps) {
             </Flex>
           )}
           <Media smallMobile={false} mobile={false} tablet desktop>
-            <Button size="small" color="danger">
+            <Button size="sm" color="danger">
               <Text color="white">Submit Review</Text>
               <LogIn size={16} />
             </Button>

@@ -34,7 +34,7 @@ export function ProductList(props: ProductListProps) {
   return (
     <div>
       <div className={filterContainerStyle}>
-        <Flex align="center" gap={1} pl={2} pr={2}>
+        <Flex align="center" gap={4} pl={6} pr={6}>
           <Text>Sort</Text>
           <Select
             options={[
@@ -54,7 +54,7 @@ export function ProductList(props: ProductListProps) {
           />
         </Flex>
       </div>
-      <div style={{ flex: 1 }}>
+      <Flex direction="column" full gap={8}>
         {props.items.map((item) => (
           <ProductItemCard
             key={item.id}
@@ -64,7 +64,7 @@ export function ProductList(props: ProductListProps) {
             onReadMore={onReadMore}
           />
         ))}
-      </div>
+      </Flex>
     </div>
   );
 }
