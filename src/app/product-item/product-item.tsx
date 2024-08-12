@@ -3,7 +3,7 @@ import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
-import { avatarStyle, imageStyle } from "./product-item-card.css";
+import { avatarStyle, imageStyle } from "./product-item.css";
 import { Tag } from "~/uikit/tag";
 import { Media } from "~/uikit/media";
 
@@ -20,14 +20,14 @@ type Item = {
   tags?: string[];
 };
 
-export type ProductItemCardProps = {
+export type ProductItemProps = {
   item: Item;
   onLike: (item: Item) => void;
   onShare: (item: Item) => void;
   onReadMore: (item: Item) => void;
 };
 
-export function ProductItemCard(props: ProductItemCardProps) {
+export function ProductItem(props: ProductItemProps) {
   const { item } = props;
   return (
     <Card>

@@ -7,6 +7,13 @@ import { Box } from "~/uikit/box";
 import { Slider } from "../slider";
 
 export type HomeProps = {
+  banners: {
+    title: string;
+    subtitle: string;
+    imageUrl: string;
+    url: string;
+    buttonText: string;
+  }[];
   categories: {
     id: number;
     name: string;
@@ -30,24 +37,17 @@ export function Home(props: HomeProps) {
   return (
     <main>
       <Header />
-      <Slider
-        items={[
-          {
-            buttonText: "Shop Now",
-            caption: "Adidas New Collection",
-            imageUrl:
-              "https://www.adidas.co.id/media/scandiweb/slider/r/u/running-fw24-ub5-global-launch-hp-banner-hero-fallback-d.jpg",
-            url: "https://www.adidas.co.id",
-          },
-          {
-            buttonText: "Shop Now",
-            caption: "Nike New Collection",
-            imageUrl:
-              "https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/h_2492,c_limit/36bc178a-0bc5-452b-8974-60d06c84308c/nike-just-do-it.jpg",
-            url: "https://nike.com",
-          },
-        ]}
-      />
+      {props.banners.length ? (
+        <Slider
+          items={props.banners.map((banner) => ({
+            title: banner.title,
+            subtitle: banner.subtitle,
+            imageUrl: banner.imageUrl,
+            url: banner.url,
+            buttonText: banner.buttonText,
+          }))}
+        />
+      ) : null}
       <Box mt={8} />
       <Container>
         <Layout

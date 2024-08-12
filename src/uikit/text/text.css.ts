@@ -78,6 +78,17 @@ export const textStyle = recipe({
         "-webkit-box-orient": "vertical",
       },
     },
+    textAlign: {
+      center: {
+        textAlign: "center",
+      },
+      left: {
+        textAlign: "left",
+      },
+      right: {
+        textAlign: "right",
+      },
+    },
   },
   defaultVariants: {
     color: "default",

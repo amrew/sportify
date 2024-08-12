@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProductItemCard } from "./product-item-card";
+import { ProductItem } from "./product-item";
 
 const meta = {
-  title: "Components/ProductItemCard",
-  component: ProductItemCard,
+  title: "Components/ProductItem",
+  component: ProductItem,
   parameters: {
     layout: "centered",
   },
@@ -16,7 +16,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof ProductItemCard>;
+} satisfies Meta<typeof ProductItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

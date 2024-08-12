@@ -1,4 +1,4 @@
-import { ProductItemCard } from "~/app/product-item";
+import { ProductItem } from "~/app/product-item";
 import { Flex } from "~/uikit/flex/flex";
 import { Select } from "~/uikit/select/select";
 import { Text } from "~/uikit/text";
@@ -61,7 +61,7 @@ export function ProductList(props: ProductListProps) {
       </div>
       <Flex direction="column" full gap={8}>
         {props.items.map((item) => (
-          <ProductItemCard
+          <ProductItem
             key={item.id}
             item={item}
             onLike={onLike}

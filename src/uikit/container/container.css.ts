@@ -10,7 +10,7 @@ export const containerStyle = style({
       width: 768,
     },
     "(min-width: 1024px)": {
-      width: 1024,
+      width: 900,
     },
   },
 });

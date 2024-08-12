@@ -10,6 +10,15 @@ type Category = {
   name: string;
 };
 
+type Banner = {
+  id: number;
+  title: string;
+  subtitle: string;
+  image_url: string;
+  url: string;
+  button_text: string;
+};
+
 type Product = {
   id: number;
   name: string;
@@ -37,6 +46,14 @@ export const getServerSideProps = (async (ctx) => {
     return categories;
   };
 
+  const getBanners = async () => {
+    const { data: banners } = await supabase
+      .from("banner")
+      .select<"*", Banner>("*")
+      .eq("status", true);
+    return banners;
+  };
+
   const getProducts = async () => {
     const { data: products } = await supabase
       .from("product")
@@ -48,15 +65,17 @@ export const getServerSideProps = (async (ctx) => {
     return products;
   };
 
-  const [categories, products] = await Promise.all([
+  const [categories, products, banners] = await Promise.all([
     getCategories(),
     getProducts(),
+    getBanners(),
   ]);
 
   return {
     props: {
       categories,
       products,
+      banners,
     },
   };
 }) satisfies GetServerSideProps<HomePageProps>;
@@ -92,6 +111,19 @@ export default function HomePage(
     );
   }, [props.products]);
 
+  const banners = useMemo(() => {
+    return (
+      props.banners?.map((banner) => ({
+        id: banner.id,
+        title: banner.title,
+        subtitle: banner.subtitle,
+        imageUrl: banner.image_url,
+        url: banner.url,
+        buttonText: banner.button_text,
+      })) || []
+    );
+  }, [props.banners]);
+
   return (
     <>
       <Head>
@@ -100,7 +132,7 @@ export default function HomePage(
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Home categories={categories} products={products} />
+      <Home categories={categories} products={products} banners={banners} />
     </>
   );
 }

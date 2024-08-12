@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
 import { Button } from "~/uikit/button";
@@ -8,7 +9,8 @@ import { Text } from "~/uikit/text";
 export type SliderProps = {
   items: {
     imageUrl: string;
-    caption: string;
+    title: string;
+    subtitle: string;
     buttonText: string;
     url: string;
   }[];
@@ -17,13 +19,13 @@ export type SliderProps = {
 export function Slider({ items }: SliderProps) {
   return (
     <div className="slide-container">
-      <Slide>
+      <Slide duration={10000}>
         {items.map((item, index) => (
           <Box key={index} position="relative" bg="rose100" full>
             <Image
               src={item.imageUrl}
               width="100%"
-              height={320}
+              height={400}
               alt="Banner"
               objectFit="cover"
               objectPosition="center"
@@ -42,13 +44,18 @@ export function Slider({ items }: SliderProps) {
               bg="semitransparent"
               p={8}
             >
-              <Text color="white" size="xxlarge">
-                {item.caption}
+              <Text color="white" size="xxlarge" textAlign="center">
+                {item.title}
+              </Text>
+              <Text color="white" size="large">
+                {item.subtitle}
               </Text>
               <Box mt={4}>
-                <Button size="sm" color="accent">
-                  {item.buttonText} <ChevronRight />
-                </Button>
+                <Link href={item.url} target="_blank">
+                  <Button size="sm" color="accent">
+                    {item.buttonText} <ChevronRight />
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Box>
