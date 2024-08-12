@@ -23,6 +23,13 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     mr,
     mt,
     mb,
+    position,
+    top,
+    left,
+    right,
+    bottom,
+    bg,
+    display,
     ...others
   } = props;
   const className = flexStyle({
@@ -42,6 +49,13 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     mr,
     mt,
     mb,
+    position,
+    top,
+    left,
+    right,
+    bottom,
+    bg,
+    display,
   });
   return (
     <div className={className} {...others}>

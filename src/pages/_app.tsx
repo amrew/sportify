@@ -1,5 +1,6 @@
 import "normalize.css";
 import "../styles/globals.css";
+import "react-slideshow-image/dist/styles.css";
 import type { AppProps } from "next/app";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";

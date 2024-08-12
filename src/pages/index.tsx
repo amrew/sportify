@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Home } from "~/app/home";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
+import { useMemo } from "react";
 
 type Category = {
   id: number;
@@ -60,10 +61,37 @@ export const getServerSideProps = (async (ctx) => {
   };
 }) satisfies GetServerSideProps<HomePageProps>;
 
-export default function HomePage({
-  categories,
-  products,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function HomePage(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
+  const categories = useMemo(() => {
+    return (
+      props.categories?.map((cat) => ({
+        ...cat,
+        href: "/categories/" + cat.slug,
+      })) || []
+    );
+  }, [props.categories]);
+
+  const products = useMemo(() => {
+    return (
+      props.products?.map((product) => ({
+        id: product.id,
+        title: product.name,
+        description: product.description,
+        imageUrl: product.image_url,
+        likes: 0,
+        tags: [],
+        author: product.profile
+          ? {
+              name: product.profile.name,
+              avatar: product.profile.picture,
+            }
+          : undefined,
+      })) || []
+    );
+  }, [props.products]);
+
   return (
     <>
       <Head>
@@ -72,30 +100,7 @@ export default function HomePage({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Home
-        categories={
-          categories?.map((cat) => ({
-            ...cat,
-            href: "/categories/" + cat.slug,
-          })) || []
-        }
-        products={
-          products?.map((product) => ({
-            id: product.id,
-            title: product.name,
-            description: product.description,
-            imageUrl: product.image_url,
-            likes: 0,
-            tags: [],
-            author: product.profile
-              ? {
-                  name: product.profile.name,
-                  avatar: product.profile.picture,
-                }
-              : undefined,
-          })) || []
-        }
-      />
+      <Home categories={categories} products={products} />
     </>
   );
 }

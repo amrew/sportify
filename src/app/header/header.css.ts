@@ -9,12 +9,3 @@ export const headerStyle = style({
   paddingTop: ".2rem",
   paddingBottom: ".2rem",
 });
-
-export const navStyle = style({
-  display: "flex",
-  gap: "1.6rem",
-  listStyle: "none",
-  margin: "0",
-  flexWrap: "wrap",
-  fontSize: "1.4rem",
-});

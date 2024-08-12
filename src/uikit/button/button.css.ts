@@ -56,12 +56,12 @@ export const buttonStyle = recipe({
     },
     size: {
       xs: sprinkles({
-        fontSize: 4,
+        fontSize: 6,
         px: 6,
         py: 3,
       }),
       sm: sprinkles({
-        fontSize: 6,
+        fontSize: 7,
         px: 8,
         py: 4,
       }),

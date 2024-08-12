@@ -1,11 +1,8 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { size } from "~/styles/config.css";
+import { colors, size } from "~/styles/config.css";
 import { spreadConfig } from "~/utils/styleUtils";
 
 export const flexStyle = recipe({
-  base: {
-    display: "flex",
-  },
   variants: {
     display: {
       flex: { display: "flex" },
@@ -52,6 +49,31 @@ export const flexStyle = recipe({
     mr: spreadConfig("marginRight", size),
     mt: spreadConfig("marginTop", size),
     mb: spreadConfig("marginBottom", size),
+    position: {
+      absolute: { position: "absolute" },
+      relative: { position: "relative" },
+      fixed: { position: "fixed" },
+      sticky: { position: "sticky" },
+    },
+    top: {
+      ...spreadConfig("top", size),
+      "50%": { top: "50%" },
+    },
+    right: spreadConfig("right", size),
+    bottom: spreadConfig("bottom", size),
+    left: {
+      ...spreadConfig("left", size),
+      "50%": {
+        left: "50%",
+        transform: "translateX(-50%)",
+      },
+    },
+    bg: {
+      ...spreadConfig("backgroundColor", colors),
+      semitransparent: {
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+      },
+    },
   },
   defaultVariants: {
     direction: "row",

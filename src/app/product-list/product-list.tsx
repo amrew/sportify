@@ -35,23 +35,28 @@ export function ProductList(props: ProductListProps) {
     <div>
       <div className={filterContainerStyle}>
         <Flex align="center" gap={4} pl={6} pr={6}>
-          <Text>Sort</Text>
-          <Select
-            options={[
-              {
-                label: "Latest",
-                value: "latest",
-              },
-              {
-                label: "Popular",
-                value: "popular",
-              },
-              {
-                label: "Price",
-                value: "price",
-              },
-            ]}
-          />
+          <Flex full>
+            <Text size="xlarge">Product Review</Text>
+          </Flex>
+          <Flex gap={4} align="center">
+            <Text>Sort</Text>
+            <Select
+              options={[
+                {
+                  label: "Latest",
+                  value: "latest",
+                },
+                {
+                  label: "Popular",
+                  value: "popular",
+                },
+                {
+                  label: "Price",
+                  value: "price",
+                },
+              ]}
+            />
+          </Flex>
         </Flex>
       </div>
       <Flex direction="column" full gap={8}>
