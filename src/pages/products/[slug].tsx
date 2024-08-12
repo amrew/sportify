@@ -24,6 +24,9 @@ type Product = {
     name: string;
     picture: string;
   };
+  product_image: {
+    image_url: string;
+  }[];
 };
 
 type HomePageProps = {
@@ -40,7 +43,7 @@ export const getServerSideProps = (async (ctx) => {
       .select<
         any,
         Product
-      >("id, name, description, image_url, slug, profile(name,picture)")
+      >("id, name, description, image_url, slug, profile(name,picture), product_image(image_url)")
       .eq("slug", slug)
       .eq("status", true)
       .single();
@@ -69,7 +72,7 @@ export default function ProductPage(
   const isMobile = useIsMobile();
 
   const purchaseLinks = (
-    <Box width={!isMobile ? 120 : undefined}>
+    <Box width={!isMobile ? 200 : undefined}>
       <Card>
         <Text weight="bold">Link Pembelian</Text>
         <Flex direction="column" gap={4} mt={4}>
@@ -82,7 +85,6 @@ export default function ProductPage(
             />
             <ChevronRight />
           </Button>
-
           <Button full>
             <Image
               src="/shopee.svg"
@@ -115,7 +117,9 @@ export default function ProductPage(
               avatar: product.profile.picture,
             }
           : undefined,
-        additionalImageUrls: [],
+        additionalImageUrls: product.product_image.map(
+          (image) => image.image_url
+        ),
       }}
     />
   );

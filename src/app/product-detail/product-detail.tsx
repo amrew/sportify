@@ -52,21 +52,23 @@ export function ProductDetail(props: ProductDetailProps) {
           </Flex>
         ) : null}
         {images.length > 1 ? (
-          <div className="slide-container">
-            <Slide autoplay={false}>
-              {images.map((imageUrl) => (
-                <Box key={imageUrl} full>
-                  <Image
-                    src={imageUrl}
-                    alt={item.title}
-                    width="100%"
-                    height={400}
-                    objectFit="contain"
-                  />
-                </Box>
-              ))}
-            </Slide>
-          </div>
+          <Box style={{ maxWidth: 520 }}>
+            <div className="slide-container">
+              <Slide autoplay={false}>
+                {images.map((imageUrl, index) => (
+                  <Box full key={index}>
+                    <Image
+                      src={imageUrl}
+                      alt={item.title}
+                      width="100%"
+                      height={400}
+                      objectFit="contain"
+                    />
+                  </Box>
+                ))}
+              </Slide>
+            </div>
+          </Box>
         ) : (
           <Box full>
             <Image
