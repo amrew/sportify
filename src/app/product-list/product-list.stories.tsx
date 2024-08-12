@@ -26,6 +26,7 @@ export const Default: Story = {
     items: [
       {
         id: 1,
+        slug: "1",
         author: {
           name: "John Doe",
           avatar: "https://placehold.co/96x96",
@@ -37,6 +38,7 @@ export const Default: Story = {
       },
       {
         id: 2,
+        slug: "2",
         author: {
           name: "Jane Doe",
           avatar: "https://placehold.co/96x96",

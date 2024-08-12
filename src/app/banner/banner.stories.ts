@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Slider } from "./banner";
+import { Banner } from "./banner";
 
 const meta = {
-  title: "Components/Slider",
-  component: Slider,
+  title: "Components/Banner",
+  component: Banner,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof Slider>;
+} satisfies Meta<typeof Banner>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
