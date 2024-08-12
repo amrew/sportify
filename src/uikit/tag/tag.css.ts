@@ -31,7 +31,7 @@ export const tagStyle = recipe({
         color: colors.black,
       },
       gray: {
-        background: colors.gray,
+        background: colors.gray300,
       },
     },
     size: {

@@ -27,7 +27,7 @@ export const textStyle = recipe({
         color: colors.white,
       },
       gray: {
-        color: colors.gray,
+        color: colors.gray600,
       },
     },
     size: {
