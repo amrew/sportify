@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { size, sprinkles } from "~/styles/config.css";
+import { size } from "~/styles/config.css";
 import { spreadConfig } from "~/utils/styleUtils";
 
 export const flexStyle = recipe({
@@ -15,6 +15,7 @@ export const flexStyle = recipe({
     direction: {
       row: { flexDirection: "row" },
       column: { flexDirection: "column" },
+      rowReverse: { flexDirection: "row-reverse" },
     },
     wrap: {
       wrap: { flexWrap: "wrap" },

@@ -4,8 +4,10 @@ import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { Tag } from "~/uikit/tag";
-import { avatarStyle, imageStyle } from "./product-detail.css";
+import { avatarStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
+import { Slide } from "react-slideshow-image";
+import { Box } from "~/uikit/box";
 
 export type DetailItem = {
   id: number;
@@ -30,9 +32,10 @@ type ProductDetailProps = {
 
 export function ProductDetail(props: ProductDetailProps) {
   const { item } = props;
+  const images = [item.imageUrl, ...item.additionalImageUrls];
   return (
     <Card>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={4} full>
         {item.author ? (
           <Flex gap={4} align="center">
             <img
@@ -48,13 +51,33 @@ export function ProductDetail(props: ProductDetailProps) {
             </Flex>
           </Flex>
         ) : null}
-        <Image
-          src={item.imageUrl}
-          alt="Product"
-          width="100%"
-          height={320}
-          objectFit="contain"
-        />
+        {images.length > 1 ? (
+          <div className="slide-container">
+            <Slide autoplay={false}>
+              {images.map((imageUrl) => (
+                <Box key={imageUrl} full>
+                  <Image
+                    src={imageUrl}
+                    alt={item.title}
+                    width="100%"
+                    height={400}
+                    objectFit="contain"
+                  />
+                </Box>
+              ))}
+            </Slide>
+          </div>
+        ) : (
+          <Box full>
+            <Image
+              src={item.imageUrl}
+              alt={item.title}
+              width="100%"
+              height={400}
+              objectFit="contain"
+            />
+          </Box>
+        )}
         <Text size="xlarge" weight="bold">
           {item.title}
         </Text>
@@ -70,7 +93,7 @@ export function ProductDetail(props: ProductDetailProps) {
         <Flex>
           <Text color="gray">{item.description}</Text>
         </Flex>
-        <Flex full>
+        <Flex full mt={8}>
           <Flex gap={3} full>
             <Button size="sm" onClick={() => props.onLike(item)}>
               <ThumbsUp size={18} />

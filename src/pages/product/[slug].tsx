@@ -6,6 +6,13 @@ import { Header } from "~/app/header";
 import { ProductDetail } from "~/app/product-detail";
 import { Container } from "~/uikit/container";
 import { Box } from "~/uikit/box";
+import { Flex } from "~/uikit/flex";
+import { Card } from "~/uikit/card";
+import { Text } from "~/uikit/text";
+import { Image } from "~/uikit/image";
+import { Button } from "~/uikit/button";
+import { ChevronRight } from "lucide-react";
+import { useIsMobile } from "~/hooks/useIsMobile";
 
 type Product = {
   id: number;
@@ -42,6 +49,12 @@ export const getServerSideProps = (async (ctx) => {
 
   const [product] = await Promise.all([getProduct(slug)]);
 
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       product,
@@ -53,6 +66,60 @@ export default function ProductPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const product = props.product;
+  const isMobile = useIsMobile();
+
+  const purchaseLinks = (
+    <Box width={!isMobile ? 120 : undefined}>
+      <Card>
+        <Text weight="bold">Link Pembelian</Text>
+        <Flex direction="column" gap={4} mt={4}>
+          <Button full>
+            <Image
+              src="/tokopedia.svg"
+              width={100}
+              height={22}
+              alt="Tokopedia Link"
+            />
+            <ChevronRight />
+          </Button>
+
+          <Button full>
+            <Image
+              src="/shopee.svg"
+              width={100}
+              height={32}
+              alt="Shopee Link"
+            />
+            <ChevronRight />
+          </Button>
+        </Flex>
+      </Card>
+    </Box>
+  );
+
+  const productComponent = (
+    <ProductDetail
+      onLike={() => {}}
+      onShare={() => {}}
+      item={{
+        id: product.id,
+        title: product.name,
+        description: product.description,
+        imageUrl: product.image_url,
+        slug: product.slug,
+        likes: 0,
+        tags: [],
+        author: product.profile
+          ? {
+              name: product.profile.name,
+              avatar: product.profile.picture,
+            }
+          : undefined,
+        additionalImageUrls: [],
+      }}
+    />
+  );
+
   return (
     <>
       <Head>
@@ -63,30 +130,17 @@ export default function ProductPage(
       </Head>
       <Header />
       <Container>
-        <Box mt={8}>
-          {product ? (
-            <ProductDetail
-              onLike={() => {}}
-              onShare={() => {}}
-              item={{
-                id: product.id,
-                title: product.name,
-                description: product.description,
-                imageUrl: product.image_url,
-                slug: product.slug,
-                likes: 0,
-                tags: [],
-                author: product.profile
-                  ? {
-                      name: product.profile.name,
-                      avatar: product.profile.picture,
-                    }
-                  : undefined,
-                additionalImageUrls: [],
-              }}
-            />
-          ) : null}
-        </Box>
+        <Flex
+          mt={8}
+          gap={4}
+          pl={4}
+          pr={4}
+          direction={isMobile ? "column" : "row"}
+          full
+        >
+          {productComponent}
+          {purchaseLinks}
+        </Flex>
       </Container>
       <Footer />
     </>

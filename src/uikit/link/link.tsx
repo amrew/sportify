@@ -8,8 +8,13 @@ type CustomLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
   Parameters<typeof linkStyle>[0];
 
 function CustomLink(props: PropsWithChildren<CustomLinkProps>) {
-  const { textDecoration, ...others } = props;
-  return <Link {...others} className={linkStyle({ textDecoration })} />;
+  const { textDecoration, className, ...others } = props;
+  return (
+    <Link
+      {...others}
+      className={`${linkStyle({ textDecoration })} ${className}`}
+    />
+  );
 }
 
 export { CustomLink as Link };

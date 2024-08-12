@@ -3,41 +3,26 @@ import { Sidebar } from "~/app/sidebar";
 import { Layout } from "~/uikit/layout";
 import { ProductList } from "~/app/product-list";
 import { Box } from "~/uikit/box";
-import { Slider } from "../slider";
+import { Banner, type BannerItem } from "../banner";
+import { type Item as ProductItem } from "~/app/product-item";
+
+type Category = {
+  id: number;
+  name: string;
+  href: string;
+};
 
 export type HomeProps = {
-  banners: {
-    title: string;
-    subtitle: string;
-    imageUrl: string;
-    url: string;
-    buttonText: string;
-  }[];
-  categories: {
-    id: number;
-    name: string;
-    href: string;
-  }[];
-  products: {
-    id: number;
-    slug: string;
-    author?: {
-      name: string;
-      avatar: string;
-    };
-    imageUrl: string;
-    title: string;
-    description: string;
-    likes: number;
-    tags?: string[];
-  }[];
+  banners: BannerItem[];
+  categories: Category[];
+  products: ProductItem[];
 };
 
 export function Home(props: HomeProps) {
   return (
     <main>
       {props.banners.length ? (
-        <Slider
+        <Banner
           items={props.banners.map((banner) => ({
             title: banner.title,
             subtitle: banner.subtitle,

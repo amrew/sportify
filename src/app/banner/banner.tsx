@@ -6,22 +6,24 @@ import { Button } from "~/uikit/button";
 import { Image } from "~/uikit/image";
 import { Text } from "~/uikit/text";
 
-export type SliderProps = {
-  items: {
-    imageUrl: string;
-    title: string;
-    subtitle: string;
-    buttonText: string;
-    url: string;
-  }[];
+export type BannerItem = {
+  imageUrl: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  url: string;
 };
 
-export function Slider({ items }: SliderProps) {
+export type BannerProps = {
+  items: BannerItem[];
+};
+
+export function Banner({ items }: BannerProps) {
   return (
     <div className="slide-container">
       <Slide duration={10000}>
         {items.map((item, index) => (
-          <Box key={index} position="relative" bg="rose100" full>
+          <Box key={index} position="relative" full>
             <Image
               src={item.imageUrl}
               width="100%"

@@ -37,7 +37,7 @@ export function Sidebar(props: SidebarProps) {
               </Button>
             </div>
           </Flex>
-          {isOpen ? <Menu items={props.items} /> : null}
+          {isOpen ? <Menu items={props.items} variant="fancy" /> : null}
         </Card>
       </div>
     </div>

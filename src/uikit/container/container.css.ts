@@ -1,8 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 export const containerStyle = style({
-  display: "flex",
-  alignItems: "center",
+  display: "block",
   margin: "0 auto",
   width: "100%",
   "@media": {

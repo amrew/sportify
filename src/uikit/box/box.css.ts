@@ -2,7 +2,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { colors, size } from "~/styles/config.css";
 import { spreadConfig } from "~/utils/styleUtils";
 
-export const flexStyle = recipe({
+export const boxStyle = recipe({
   variants: {
     display: {
       flex: { display: "flex" },
@@ -74,6 +74,7 @@ export const flexStyle = recipe({
         backgroundColor: "rgba(0, 0, 0, 0.7)",
       },
     },
+    width: spreadConfig("width", size),
   },
   defaultVariants: {
     direction: "row",

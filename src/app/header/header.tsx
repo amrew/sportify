@@ -45,46 +45,48 @@ export function Header(props: HeaderProps) {
   return (
     <header className={headerStyle} {...props}>
       <Container>
-        <Flex align="center" full gap={8} pl={2} pr={2} pt={4} pb={4}>
-          <Link href="/">
-            <img
-              src="/sportify1.png"
-              alt="Sportify Logo"
-              width={120}
-              height={36}
-            />
-          </Link>
-        </Flex>
-        <Flex gap={4} align="center">
-          {!user ? (
-            <Button
-              size="sm"
-              onClick={() => {
-                handleLoginWithGoogle();
-              }}
-            >
-              <Text>Login</Text>
-            </Button>
-          ) : (
-            <Flex gap={4} align="center">
-              <Text>{user.user_metadata?.name}</Text>
+        <Flex align="center">
+          <Flex align="center" full gap={8} pl={2} pr={2} pt={4} pb={4}>
+            <Link href="/">
+              <img
+                src="/sportify1.png"
+                alt="Sportify Logo"
+                width={120}
+                height={36}
+              />
+            </Link>
+          </Flex>
+          <Flex gap={4} align="center">
+            {!user ? (
               <Button
                 size="sm"
-                color="ghost"
                 onClick={() => {
-                  handleLogout();
+                  handleLoginWithGoogle();
                 }}
               >
-                <Text color="accent">Logout</Text>
+                <Text>Login</Text>
               </Button>
-            </Flex>
-          )}
-          <Media smallMobile={false} mobile={false} tablet desktop>
-            <Button size="sm" color="danger">
-              <Text color="white">Submit Review</Text>
-              <LogIn size={16} />
-            </Button>
-          </Media>
+            ) : (
+              <Flex gap={4} align="center">
+                <Text>{user.user_metadata?.name}</Text>
+                <Button
+                  size="sm"
+                  color="ghost"
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                >
+                  <Text color="accent">Logout</Text>
+                </Button>
+              </Flex>
+            )}
+            <Media smallMobile={false} mobile={false} tablet desktop>
+              <Button size="sm" color="danger">
+                <Text color="white">Submit Review</Text>
+                <LogIn size={16} />
+              </Button>
+            </Media>
+          </Flex>
         </Flex>
       </Container>
     </header>

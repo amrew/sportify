@@ -1,8 +1,7 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
-import { flexStyle } from "./box.css";
+import { boxStyle } from "./box.css";
 
-type BoxProps = HTMLAttributes<HTMLDivElement> &
-  Parameters<typeof flexStyle>[0];
+type BoxProps = HTMLAttributes<HTMLDivElement> & Parameters<typeof boxStyle>[0];
 
 export function Box(props: PropsWithChildren<BoxProps>) {
   const {
@@ -30,9 +29,10 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     bottom,
     bg,
     display,
+    width,
     ...others
   } = props;
-  const className = flexStyle({
+  const className = boxStyle({
     direction,
     full,
     justify,
@@ -56,6 +56,7 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     bottom,
     bg,
     display,
+    width,
   });
   return (
     <div className={className} {...others}>

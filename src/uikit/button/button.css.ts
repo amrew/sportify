@@ -86,6 +86,11 @@ export const buttonStyle = recipe({
         py: 8,
       }),
     },
+    full: {
+      true: {
+        width: "100%",
+      },
+    },
   },
   defaultVariants: {
     color: "default",

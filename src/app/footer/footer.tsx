@@ -9,7 +9,7 @@ export function Footer() {
     <Box mt={8} pl={8} pr={8} pt={4} pb={4} bg="gray800">
       <Container>
         <Flex align="center" gap={6}>
-          <Text color="white">© 2021 Sportify</Text>
+          <Text color="white">© 2024 Sportify</Text>
           <Menu
             direction="row"
             variant="simple"
