@@ -4,11 +4,17 @@ import { Select } from "~/uikit/select/select";
 import { Text } from "~/uikit/text";
 import { filterContainerStyle } from "./product-list.css";
 
+export type SortType = "latest" | "oldest" | "price-low" | "price-high";
+
 export type ProductListProps = {
   items: Item[];
+  showSort?: boolean;
+  selectedSort?: SortType;
+  onSortChange?: (sort: SortType) => void;
 };
 
 export function ProductList(props: ProductListProps) {
+  const { selectedSort = "latest" } = props;
   const onLike = (item: Item) => {
     console.log("Liked", item);
   };
@@ -16,7 +22,7 @@ export function ProductList(props: ProductListProps) {
     console.log("Shared", item);
   };
   const getHref = (item: Item) => {
-    return `/product/${item.slug}`;
+    return `/products/${item.slug}`;
   };
   return (
     <div>
@@ -25,25 +31,35 @@ export function ProductList(props: ProductListProps) {
           <Flex full>
             <Text size="xlarge">Product Review</Text>
           </Flex>
-          <Flex gap={4} align="center">
-            <Text>Sort</Text>
-            <Select
-              options={[
-                {
-                  label: "Latest",
-                  value: "latest",
-                },
-                {
-                  label: "Popular",
-                  value: "popular",
-                },
-                {
-                  label: "Price",
-                  value: "price",
-                },
-              ]}
-            />
-          </Flex>
+          {props.showSort ? (
+            <Flex gap={4} align="center">
+              <Text>Sort</Text>
+              <Select
+                value={selectedSort}
+                options={[
+                  {
+                    label: "Latest",
+                    value: "latest",
+                  },
+                  {
+                    label: "Oldest",
+                    value: "oldest",
+                  },
+                  {
+                    label: "Price (Cheap - Expensive)",
+                    value: "price-low",
+                  },
+                  {
+                    label: "Price (Expensive - Cheap)",
+                    value: "price-high",
+                  },
+                ]}
+                onChange={(e) =>
+                  props.onSortChange?.(e.target.value as SortType)
+                }
+              />
+            </Flex>
+          ) : null}
         </Flex>
       </div>
       <Flex direction="column" full gap={8}>

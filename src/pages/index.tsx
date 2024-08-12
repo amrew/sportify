@@ -1,10 +1,14 @@
 import Head from "next/head";
-import { Home } from "~/app/home";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { useMemo } from "react";
 import { Footer } from "~/app/footer";
 import { Header } from "~/app/header";
+import { Banner } from "~/app/banner";
+import { Container } from "~/uikit/container";
+import { Layout } from "~/uikit/layout";
+import { Sidebar } from "~/app/sidebar";
+import { ProductList } from "~/app/product-list";
 
 type Category = {
   id: number;
@@ -137,7 +141,14 @@ export default function HomePage(
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Home categories={categories} products={products} banners={banners} />
+      <Banner items={banners} />
+      <main>
+        <Container>
+          <Layout leftNode={<Sidebar items={categories} />}>
+            <ProductList items={products} />
+          </Layout>
+        </Container>
+      </main>
       <Footer />
     </>
   );

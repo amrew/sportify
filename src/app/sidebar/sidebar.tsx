@@ -10,12 +10,14 @@ import { useState } from "react";
 type Item = {
   id: number;
   name: string;
+  slug: string;
   href: string;
   children?: Item[];
 };
 
 export type SidebarProps = {
   items: Item[];
+  selectedSlug?: string;
 };
 
 export function Sidebar(props: SidebarProps) {
@@ -37,7 +39,13 @@ export function Sidebar(props: SidebarProps) {
               </Button>
             </div>
           </Flex>
-          {isOpen ? <Menu items={props.items} variant="fancy" /> : null}
+          {isOpen ? (
+            <Menu
+              items={props.items}
+              selectedSlug={props.selectedSlug}
+              variant="fancy"
+            />
+          ) : null}
         </Card>
       </div>
     </div>

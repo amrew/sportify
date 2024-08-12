@@ -1,4 +1,4 @@
-import { HTMLAttributes, PropsWithChildren } from "react";
+import { PropsWithChildren, SelectHTMLAttributes } from "react";
 import { selectStyle } from "./select.css";
 
 type Option = {
@@ -6,7 +6,7 @@ type Option = {
   value: string;
 };
 
-export type TextProps = HTMLAttributes<HTMLSelectElement> &
+export type TextProps = SelectHTMLAttributes<HTMLSelectElement> &
   Parameters<typeof selectStyle>[0] & {
     options: Option[];
   };

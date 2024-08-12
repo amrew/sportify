@@ -20,16 +20,19 @@ export const Column: Story = {
     items: [
       {
         id: 1,
+        slug: "running",
         name: "Running",
         href: "/categories/running",
       },
       {
         id: 2,
+        slug: "soccer",
         name: "Soccer",
         href: "/categories/soccer",
       },
       {
         id: 3,
+        slug: "basketball",
         name: "Basketball",
         href: "/categories/basketball",
       },
@@ -43,16 +46,19 @@ export const Row: Story = {
     items: [
       {
         id: 1,
+        slug: "running",
         name: "Running",
         href: "/categories/running",
       },
       {
         id: 2,
+        slug: "soccer",
         name: "Soccer",
         href: "/categories/soccer",
       },
       {
         id: 3,
+        slug: "basketball",
         name: "Basketball",
         href: "/categories/basketball",
       },

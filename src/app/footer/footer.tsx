@@ -15,9 +15,14 @@ export function Footer() {
             variant="simple"
             color="dark"
             items={[
-              { id: 1, name: "About", href: "/about" },
-              { id: 2, name: "Contact", href: "/contact" },
-              { id: 3, name: "Privacy Policy", href: "/privacy-policy" },
+              { id: 1, slug: "about", name: "About", href: "/about" },
+              { id: 2, slug: "contact", name: "Contact", href: "/contact" },
+              {
+                id: 3,
+                slug: "privacy-policy",
+                name: "Privacy Policy",
+                href: "/privacy-policy",
+              },
             ]}
           />
         </Flex>

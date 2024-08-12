@@ -19,6 +19,10 @@ export type BannerProps = {
 };
 
 export function Banner({ items }: BannerProps) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <div className="slide-container">
       <Slide duration={10000}>

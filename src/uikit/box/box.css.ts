@@ -57,7 +57,10 @@ export const boxStyle = recipe({
     },
     top: {
       ...spreadConfig("top", size),
-      "50%": { top: "50%" },
+      "50%": {
+        top: "50%",
+        transform: "translateY(-50%)",
+      },
     },
     right: spreadConfig("right", size),
     bottom: spreadConfig("bottom", size),

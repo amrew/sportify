@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { sprinkles } from "~/styles/config.css";
 
 export const menuStyle = recipe({
   base: {
@@ -21,16 +22,20 @@ export const menuStyle = recipe({
 });
 
 export const aStyle = recipe({
-  base: {
-    color: "#333",
-    textDecoration: "none",
-    display: "block",
-    paddingLeft: "1.6rem",
-    paddingRight: "1.6rem",
-    paddingTop: ".8rem",
-    paddingBottom: ".8rem",
-    transition: "all 0.3s",
-  },
+  base: [
+    {
+      textDecoration: "none",
+      display: "block",
+      transition: "all 0.3s",
+    },
+    sprinkles({
+      color: "gray800",
+      pl: 8,
+      pr: 8,
+      pt: 4,
+      pb: 4,
+    }),
+  ],
   variants: {
     variant: {
       simple: {
@@ -41,8 +46,16 @@ export const aStyle = recipe({
         },
       },
       fancy: {
-        backgroundColor: "#f3f3f3",
-        border: "1px solid #eaeaea",
+        backgroundColor: "#f9fafb",
+        border: "1px solid #e5e7eb",
+        borderRadius: ".8rem",
+        ":hover": {
+          backgroundColor: "#eaeaea",
+        },
+      },
+      selected: {
+        backgroundColor: "#e5e7eb",
+        border: "1px solid #d1d5db",
         borderRadius: ".8rem",
         ":hover": {
           backgroundColor: "#eaeaea",
