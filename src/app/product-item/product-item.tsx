@@ -8,6 +8,10 @@ import { Tag } from "~/uikit/tag";
 import { Media } from "~/uikit/media";
 import { Link } from "~/uikit/link";
 import { Image } from "~/uikit/image";
+import { RWebShare } from "react-web-share";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 export type Item = {
   id: number;
@@ -88,9 +92,18 @@ export function ProductItem(props: ProductItemProps) {
             <Button size="sm" onClick={() => props.onLike(item)}>
               <ThumbsUp size={18} />
             </Button>
-            <Button size="sm" onClick={() => props.onShare(item)}>
-              <Share2 size={18} />
-            </Button>
+            <RWebShare
+              data={{
+                text: item.title,
+                url: `${publicRuntimeConfig.APP_URL}/products/${item.slug}`,
+                title: "Check out this product!",
+              }}
+              onClick={() => console.log("shared successfully!")}
+            >
+              <Button size="sm" onClick={() => props.onShare(item)}>
+                <Share2 size={18} />
+              </Button>
+            </RWebShare>
             <Button size="sm" onClick={() => props.onShare(item)}>
               <MessageCircle size={18} />
             </Button>

@@ -8,6 +8,11 @@ import { avatarStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
+import { useIsMobile } from "~/hooks/useIsMobile";
+import { RWebShare } from "react-web-share";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 export type DetailItem = {
   id: number;
@@ -33,6 +38,7 @@ type ProductDetailProps = {
 export function ProductDetail(props: ProductDetailProps) {
   const { item } = props;
   const images = [item.imageUrl, ...item.additionalImageUrls];
+  const isMobile = useIsMobile();
   return (
     <Card>
       <Flex direction="column" gap={4} full>
@@ -61,7 +67,7 @@ export function ProductDetail(props: ProductDetailProps) {
                       src={imageUrl}
                       alt={item.title}
                       width="100%"
-                      height={400}
+                      height={isMobile ? 320 : 400}
                       objectFit="contain"
                     />
                   </Box>
@@ -100,9 +106,18 @@ export function ProductDetail(props: ProductDetailProps) {
             <Button size="sm" onClick={() => props.onLike(item)}>
               <ThumbsUp size={18} />
             </Button>
-            <Button size="sm" onClick={() => props.onShare(item)}>
-              <Share2 size={18} />
-            </Button>
+            <RWebShare
+              data={{
+                text: item.title,
+                url: `${publicRuntimeConfig.APP_URL}/products/${item.slug}`,
+                title: "Check out this product!",
+              }}
+              onClick={() => console.log("shared successfully!")}
+            >
+              <Button size="sm" onClick={() => props.onShare(item)}>
+                <Share2 size={18} />
+              </Button>
+            </RWebShare>
             <Button size="sm" onClick={() => props.onShare(item)}>
               <MessageCircle size={18} />
             </Button>
