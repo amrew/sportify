@@ -84,5 +84,6 @@ export const Default: Story = {
         likes: 69,
       },
     ],
+    banners: [],
   },
 };

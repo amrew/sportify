@@ -19,7 +19,8 @@ export const Default: Story = {
     items: [
       {
         buttonText: "Shop Now",
-        caption: "Adidas New Collection",
+        title: "Adidas New Collection",
+        subtitle: "Get the latest collection of Adidas",
         imageUrl:
           "https://www.adidas.co.id/media/scandiweb/slider/r/u/running-fw24-ub5-global-launch-hp-banner-hero-fallback-d.jpg",
         url: "https://www.adidas.co.id",
