@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ProductList } from "./product-list";
 
 const meta = {
-  title: "Containers/ProductList",
+  title: "Components/ProductList",
   component: ProductList,
   parameters: {
     layout: "centered",

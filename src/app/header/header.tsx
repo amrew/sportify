@@ -8,6 +8,7 @@ import { Flex } from "~/uikit/flex";
 import { LogIn } from "lucide-react";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import getConfig from "next/config";
+import { Media } from "~/uikit/media";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -43,28 +44,30 @@ export function Header(props: HeaderProps) {
   return (
     <header className={headerStyle} {...props}>
       <Container>
-        <Flex align="center" full gap={3}>
+        <Flex align="center" full gap={3} pl={2} pr={2} pt={1} pb={1}>
           <img
             src="/sportify1.png"
             alt="Sportify Logo"
             width={120}
             height={36}
           />
-          <Menu
-            direction="row"
-            items={[
-              {
-                id: 1,
-                name: "Home",
-                href: "/",
-              },
-              {
-                id: 2,
-                name: "Blog",
-                href: "/blog",
-              },
-            ]}
-          />
+          <Media smallMobile={false} mobile={false} tablet desktop>
+            <Menu
+              direction="row"
+              items={[
+                {
+                  id: 1,
+                  name: "Home",
+                  href: "/",
+                },
+                {
+                  id: 2,
+                  name: "Blog",
+                  href: "/blog",
+                },
+              ]}
+            />
+          </Media>
         </Flex>
         <Flex gap={1} align="center">
           {!user ? (
@@ -90,10 +93,12 @@ export function Header(props: HeaderProps) {
               </Button>
             </Flex>
           )}
-          <Button size="small" color="danger">
-            <Text color="white">Submit Review</Text>
-            <LogIn size={16} />
-          </Button>
+          <Media smallMobile={false} mobile={false} tablet desktop>
+            <Button size="small" color="danger">
+              <Text color="white">Submit Review</Text>
+              <LogIn size={16} />
+            </Button>
+          </Media>
         </Flex>
       </Container>
     </header>

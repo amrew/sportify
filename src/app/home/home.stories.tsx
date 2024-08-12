@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeScreen } from "./home-screen";
+import { Home } from "./home";
 
 const meta = {
-  title: "Screens/HomeScreen",
-  component: HomeScreen,
+  title: "Screens/Home",
+  component: Home,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof HomeScreen>;
+} satisfies Meta<typeof Home>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

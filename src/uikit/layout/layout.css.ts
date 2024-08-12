@@ -23,3 +23,7 @@ export const layoutStyle = style({
     },
   },
 });
+
+export const mainStyle = style({
+  flex: 1,
+});

@@ -31,6 +31,7 @@ export const aStyle = recipe({
     paddingBottom: ".8rem",
     transition: "all 0.3s",
     backgroundColor: "#f3f3f3",
+    border: "1px solid #eaeaea",
     borderRadius: ".8rem",
     ":hover": {
       backgroundColor: "#eaeaea",

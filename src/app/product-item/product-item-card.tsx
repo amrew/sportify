@@ -5,6 +5,7 @@ import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { avatarStyle, imageStyle } from "./product-item-card.css";
 import { Tag } from "~/uikit/tag";
+import { Media } from "~/uikit/media";
 
 type Item = {
   id: number;
@@ -75,7 +76,6 @@ export function ProductItemCard(props: ProductItemCardProps) {
         <Flex full>
           <Flex gap={1} full>
             <Button size="small" onClick={() => props.onLike(item)}>
-              <Text size="small">{item.likes}</Text>
               <ThumbsUp size={18} />
             </Button>
             <Button size="small" onClick={() => props.onShare(item)}>
@@ -86,7 +86,9 @@ export function ProductItemCard(props: ProductItemCardProps) {
             </Button>
           </Flex>
           <Button color="primary" onClick={() => props.onReadMore(item)}>
-            <Text color="white">Read More</Text>
+            <Media smallMobile={false} mobile tablet desktop>
+              <Text color="white">Read More</Text>
+            </Media>
             <ChevronRight />
           </Button>
         </Flex>

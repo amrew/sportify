@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "./header";
 
 const meta = {
-  title: "Uikit/Header",
+  title: "Components/Header",
   component: Header,
   parameters: {
     layout: "fullscreen",

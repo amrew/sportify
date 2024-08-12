@@ -5,8 +5,21 @@ type FlexProps = HTMLAttributes<HTMLDivElement> &
   Parameters<typeof flexStyle>[0];
 
 export function Flex(props: PropsWithChildren<FlexProps>) {
-  const { direction, justify, align, wrap, gap, children, full, ...others } =
-    props;
+  const {
+    direction,
+    justify,
+    align,
+    wrap,
+    gap,
+    children,
+    full,
+    p,
+    pl,
+    pr,
+    pt,
+    pb,
+    ...others
+  } = props;
   const className = flexStyle({
     direction,
     full,
@@ -14,6 +27,11 @@ export function Flex(props: PropsWithChildren<FlexProps>) {
     align,
     wrap,
     gap,
+    p,
+    pl,
+    pr,
+    pt,
+    pb,
   });
   return (
     <div className={className} {...others}>

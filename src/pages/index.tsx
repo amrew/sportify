@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { HomeScreen } from "~/app/screens/home-screen";
+import { Home } from "~/app/home";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 
@@ -20,7 +20,7 @@ type Product = {
   };
 };
 
-type HomeProps = {
+type HomePageProps = {
   categories: Array<Category> | null;
   products: Array<Product> | null;
 };
@@ -51,12 +51,16 @@ export const getServerSideProps = (async (ctx) => {
     getCategories(),
     getProducts(),
   ]);
-  console.log(products);
 
-  return { props: { categories, products } };
-}) satisfies GetServerSideProps<HomeProps>;
+  return {
+    props: {
+      categories,
+      products,
+    },
+  };
+}) satisfies GetServerSideProps<HomePageProps>;
 
-export default function Home({
+export default function HomePage({
   categories,
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -68,7 +72,7 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeScreen
+      <Home
         categories={
           categories?.map((cat) => ({
             ...cat,

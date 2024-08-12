@@ -1,10 +1,10 @@
 import { Container } from "~/uikit/container/container";
-import { Header } from "~/app/components/header";
-import { Sidebar } from "~/app/components/sidebar";
+import { Header } from "~/app/header";
+import { Sidebar } from "~/app/sidebar";
 import { Layout } from "~/uikit/layout";
-import { ProductList } from "~/app/containers/product-list";
+import { ProductList } from "~/app/product-list";
 
-export type HomeScreenProps = {
+export type HomeProps = {
   categories: {
     id: number;
     name: string;
@@ -24,7 +24,7 @@ export type HomeScreenProps = {
   }[];
 };
 
-export function HomeScreen(props: HomeScreenProps) {
+export function Home(props: HomeProps) {
   return (
     <main>
       <Header />

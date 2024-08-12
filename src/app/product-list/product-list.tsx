@@ -1,4 +1,4 @@
-import { ProductItemCard } from "~/app/components/product-item";
+import { ProductItemCard } from "~/app/product-item";
 import { Flex } from "~/uikit/flex/flex";
 import { Select } from "~/uikit/select/select";
 import { Text } from "~/uikit/text";
@@ -34,7 +34,7 @@ export function ProductList(props: ProductListProps) {
   return (
     <div>
       <div className={filterContainerStyle}>
-        <Flex align="center" gap={1}>
+        <Flex align="center" gap={1} pl={2} pr={2}>
           <Text>Sort</Text>
           <Select
             options={[
