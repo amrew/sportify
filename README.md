@@ -10,6 +10,8 @@ The purpose of this web is to review products and provide affiliate links. It is
 
 - **React**: The frontend is built using React, a JavaScript library for creating user interfaces, particularly single-page applications.
 
+- **XState**: XState is a JavaScript library for managing application state and behavior. It provides a powerful and declarative way to model and visualize complex state machines, making it easier to build robust and scalable applications.
+
 - **Vanilla Extract**: Vanilla Extract is a CSS preprocessor that leverages TypeScript instead of traditional CSS or Sass syntax. It allows you to write your styles in TypeScript, enabling you to take advantage of TypeScript's type safety, autocompletion, and modularity. This approach makes it easier to manage and scale your styles, especially in large applications. Vanilla Extract compiles your TypeScript-based styles into static CSS at build time, ensuring zero runtime overhead and maintaining a high-performance user experience.
 
 - **Storybook**: The project includes Storybook for UI component development and testing in isolation. This helps in building and maintaining UI components without running the full application.

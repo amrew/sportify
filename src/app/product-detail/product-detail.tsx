@@ -10,6 +10,9 @@ import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
 import { RWebShare } from "react-web-share";
 import getConfig from "next/config";
+import { useMachine } from "@xstate/react";
+import { commentMachine } from "~/machines/commentMachine";
+import { useEffect } from "react";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -36,6 +39,17 @@ type ProductDetailProps = {
 export function ProductDetail(props: ProductDetailProps) {
   const { item } = props;
   const images = [item.imageUrl, ...item.additionalImageUrls];
+
+  const [state, send] = useMachine(commentMachine);
+  const comments = state.context.comments;
+
+  useEffect(() => {
+    send({
+      type: "FETCH",
+      productId: item.id,
+    });
+  }, []);
+
   return (
     <Card>
       <Flex direction="column" gap={4} full>
@@ -129,46 +143,26 @@ export function ProductDetail(props: ProductDetailProps) {
             <Text weight="bold">Comment</Text>
           </Card>
           <Flex direction="column" gap={4} ml={8} mt={4}>
-            <Card>
-              <Flex gap={4} align="center">
-                <Image
-                  src="https://avatars.githubusercontent.com/u/4726921?v=4"
-                  alt="Author"
-                  width={34}
-                  height={34}
-                  radius="xl"
-                />
-                <Flex direction="column">
-                  <Text weight="bold">Jhon Doe</Text>
+            {comments.length === 0 && <Text>No comments yet</Text>}
+            {comments.map((comment) => (
+              <Card>
+                <Flex gap={4} align="center">
+                  <Image
+                    src={comment.user.picture}
+                    alt="Author"
+                    width={34}
+                    height={34}
+                    radius="xl"
+                  />
+                  <Flex direction="column">
+                    <Text weight="bold">{comment.user.name}</Text>
+                  </Flex>
                 </Flex>
-              </Flex>
-              <Box mt={2}>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ac orci sit amet elit fringilla.
-                </Text>
-              </Box>
-            </Card>
-            <Card>
-              <Flex gap={4} align="center">
-                <Image
-                  src="https://avatars.githubusercontent.com/u/472691?v=4"
-                  alt="Author"
-                  width={34}
-                  height={34}
-                  radius="xl"
-                />
-                <Flex direction="column">
-                  <Text weight="bold">Foo Bar Baz</Text>
-                </Flex>
-              </Flex>
-              <Box mt={2}>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ac orci sit amet elit fringilla.
-                </Text>
-              </Box>
-            </Card>
+                <Box mt={2}>
+                  <Text>{comment.message}</Text>
+                </Box>
+              </Card>
+            ))}
           </Flex>
         </Box>
       </Flex>
