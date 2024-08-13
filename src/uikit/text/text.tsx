@@ -14,9 +14,10 @@ export function Text(props: PropsWithChildren<TextProps>) {
     textDecoration,
     whiteSpace,
     children,
+    className,
     ...others
   } = props;
-  const className = textStyle({
+  const textClassname = textStyle({
     color,
     size,
     weight,
@@ -26,7 +27,7 @@ export function Text(props: PropsWithChildren<TextProps>) {
     whiteSpace,
   });
   return (
-    <span className={className} {...others}>
+    <span className={`${textClassname} ${className}`} {...others}>
       {children}
     </span>
   );

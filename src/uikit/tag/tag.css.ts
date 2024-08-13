@@ -1,55 +1,56 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { colors } from "~/styles/config.css";
+import { colors, sprinkles } from "~/styles/config.css";
 
 export const tagStyle = recipe({
-  base: {
-    fontSize: "1.4rem",
-    lineHeight: "1.5",
-    color: colors.white,
-    padding: ".2rem .6rem",
-    borderRadius: ".4rem",
-  },
+  base: sprinkles({
+    fontSize: 7,
+    lineHeight: "normal",
+    color: "white",
+    px: 3,
+    py: 1,
+    radius: "md",
+  }),
   variants: {
     color: {
-      default: {
-        background: colors.black,
-      },
-      primary: {
-        background: colors.primary,
-      },
-      secondary: {
-        background: colors.secondary,
-      },
-      accent: {
-        background: colors.accent,
-      },
-      danger: {
-        background: colors.danger,
-      },
-      white: {
-        background: colors.white,
-        color: colors.black,
-      },
-      gray: {
-        background: colors.gray300,
-      },
+      default: sprinkles({
+        backgroundColor: "gray800",
+      }),
+      primary: sprinkles({
+        backgroundColor: "primary",
+      }),
+      secondary: sprinkles({
+        backgroundColor: "secondary",
+      }),
+      accent: sprinkles({
+        backgroundColor: "accent",
+      }),
+      danger: sprinkles({
+        backgroundColor: "danger",
+      }),
+      white: sprinkles({
+        backgroundColor: "white",
+        color: "gray800",
+      }),
+      gray: sprinkles({
+        backgroundColor: "gray300",
+      }),
     },
     size: {
-      small: {
-        fontSize: "1.2rem",
-      },
-      medium: {
-        fontSize: "1.6rem",
-      },
-      large: {
-        fontSize: "2rem",
-      },
-      xlarge: {
-        fontSize: "2.4rem",
-      },
-      xxlarge: {
-        fontSize: "3.2rem",
-      },
+      small: sprinkles({
+        fontSize: 6,
+      }),
+      medium: sprinkles({
+        fontSize: 7,
+      }),
+      large: sprinkles({
+        fontSize: 8,
+      }),
+      xlarge: sprinkles({
+        fontSize: 9,
+      }),
+      xxlarge: sprinkles({
+        fontSize: 10,
+      }),
     },
   },
   defaultVariants: {

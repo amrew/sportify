@@ -5,9 +5,10 @@ export type ButtonProps = HTMLAttributes<HTMLButtonElement> &
   Parameters<typeof buttonStyle>[0];
 
 export function Button(props: PropsWithChildren<ButtonProps>) {
-  const { color, size, full, ...others } = props;
+  const { color, size, full, className, ...others } = props;
+  const buttonClassname = buttonStyle({ color, size, full });
   return (
-    <button className={buttonStyle({ color, size, full })} {...others}>
+    <button className={`${buttonClassname} ${className}`} {...others}>
       {props.children}
     </button>
   );

@@ -4,7 +4,7 @@ import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { Tag } from "~/uikit/tag";
-import { avatarStyle, imageStyle } from "./product-detail.css";
+import { imageStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
@@ -41,12 +41,12 @@ export function ProductDetail(props: ProductDetailProps) {
       <Flex direction="column" gap={4} full>
         {item.author ? (
           <Flex gap={4} align="center">
-            <img
+            <Image
               src={item.author.avatar}
               alt="Author"
               width={34}
               height={34}
-              className={avatarStyle}
+              radius="lg"
             />
             <Flex direction="column">
               <Text size="small">Author</Text>

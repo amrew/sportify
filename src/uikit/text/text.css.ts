@@ -1,51 +1,51 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { colors } from "~/styles/config.css";
+import { colors, sprinkles } from "~/styles/config.css";
 
 export const textStyle = recipe({
-  base: {
-    fontSize: "1.4rem",
-    lineHeight: "1.5",
-  },
+  base: sprinkles({
+    fontSize: 7,
+    lineHeight: "normal",
+  }),
   variants: {
     color: {
-      default: {
-        color: colors.black,
-      },
-      primary: {
-        color: colors.primary,
-      },
-      secondary: {
-        color: colors.secondary,
-      },
-      accent: {
-        color: colors.accent,
-      },
-      danger: {
-        color: colors.danger,
-      },
-      white: {
-        color: colors.white,
-      },
-      gray: {
-        color: colors.gray600,
-      },
+      default: sprinkles({
+        color: "gray800",
+      }),
+      primary: sprinkles({
+        color: "primary",
+      }),
+      secondary: sprinkles({
+        color: "secondary",
+      }),
+      accent: sprinkles({
+        color: "accent",
+      }),
+      danger: sprinkles({
+        color: "danger",
+      }),
+      white: sprinkles({
+        color: "white",
+      }),
+      gray: sprinkles({
+        color: "gray600",
+      }),
     },
     size: {
-      small: {
-        fontSize: "1.2rem",
-      },
-      medium: {
-        fontSize: "1.6rem",
-      },
-      large: {
-        fontSize: "2rem",
-      },
-      xlarge: {
-        fontSize: "2.4rem",
-      },
-      xxlarge: {
-        fontSize: "3.2rem",
-      },
+      small: sprinkles({
+        fontSize: 6,
+      }),
+      medium: sprinkles({
+        fontSize: 8,
+      }),
+      large: sprinkles({
+        fontSize: 10,
+      }),
+      xlarge: sprinkles({
+        fontSize: 12,
+      }),
+      xxlarge: sprinkles({
+        fontSize: 16,
+      }),
     },
     weight: {
       regular: {
@@ -53,6 +53,9 @@ export const textStyle = recipe({
       },
       bold: {
         fontWeight: "bold",
+      },
+      semibold: {
+        fontWeight: "500",
       },
     },
     clamp: {

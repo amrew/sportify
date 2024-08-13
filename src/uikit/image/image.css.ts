@@ -1,4 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
+import { radius } from "~/styles/config.css";
+import { spreadConfig } from "~/utils/styleUtils";
 
 export const imageStyle = recipe({
   variants: {
@@ -16,5 +18,6 @@ export const imageStyle = recipe({
       left: { objectPosition: "left" },
       center: { objectPosition: "center" },
     },
+    radius: spreadConfig("radius", radius),
   },
 });

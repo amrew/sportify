@@ -10,6 +10,7 @@ import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import getConfig from "next/config";
 import { Media } from "~/uikit/media";
 import { Link } from "~/uikit/link";
+import { Image } from "~/uikit/image";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -48,7 +49,7 @@ export function Header(props: HeaderProps) {
         <Flex align="center">
           <Flex align="center" full gap={8} pl={2} pr={2} pt={4} pb={4}>
             <Link href="/">
-              <img
+              <Image
                 src="/sportify2.png"
                 alt="Sportify Logo"
                 width={120}

@@ -3,13 +3,17 @@ import { recipe } from "@vanilla-extract/recipes";
 import { sprinkles } from "~/styles/config.css";
 
 export const menuStyle = recipe({
-  base: {
-    display: "flex",
-    flexWrap: "wrap",
-    listStyle: "none",
-    gap: ".8rem",
-    padding: 0,
-  },
+  base: [
+    {
+      display: "flex",
+      flexWrap: "wrap",
+      listStyle: "none",
+      padding: 0,
+    },
+    sprinkles({
+      gap: 4,
+    }),
+  ],
   variants: {
     direction: {
       row: { flexDirection: "row" },

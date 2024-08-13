@@ -5,9 +5,10 @@ export type TextProps = HTMLAttributes<HTMLSpanElement> &
   Parameters<typeof tagStyle>[0];
 
 export function Tag(props: PropsWithChildren<TextProps>) {
-  const { color, size } = props;
+  const { color, size, className, ...others } = props;
+  const tagClassname = tagStyle({ color, size });
   return (
-    <span className={tagStyle({ color, size })} {...props}>
+    <span className={`${tagClassname} ${className}`} {...others}>
       {props.children}
     </span>
   );

@@ -6,6 +6,7 @@ import { Flex } from "~/uikit/flex/flex";
 import { ChevronDown, ChevronUp, MenuSquare } from "lucide-react";
 import { Button } from "~/uikit/button";
 import { useState } from "react";
+import { Box } from "~/uikit/box";
 
 type Item = {
   id: number;
@@ -23,8 +24,8 @@ export type SidebarProps = {
 export function Sidebar(props: SidebarProps) {
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <div>
-      <div className={sidebarStyle}>
+    <Box>
+      <Box className={sidebarStyle}>
         <Card>
           <Flex align="center" gap={4}>
             <Flex align="center" gap={4} full>
@@ -33,11 +34,11 @@ export function Sidebar(props: SidebarProps) {
                 Category
               </Text>
             </Flex>
-            <div className={toggleButtonStyle}>
+            <Box className={toggleButtonStyle}>
               <Button size="sm" onClick={() => setIsOpen((prev) => !prev)}>
                 {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               </Button>
-            </div>
+            </Box>
           </Flex>
           {isOpen ? (
             <Menu
@@ -47,7 +48,7 @@ export function Sidebar(props: SidebarProps) {
             />
           ) : null}
         </Card>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

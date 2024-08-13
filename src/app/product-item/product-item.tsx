@@ -3,7 +3,6 @@ import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
-import { avatarStyle } from "./product-item.css";
 import { Tag } from "~/uikit/tag";
 import { Media } from "~/uikit/media";
 import { Link } from "~/uikit/link";
@@ -30,6 +29,7 @@ export type Item = {
 export type ProductItemProps = {
   item: Item;
   onLike: (item: Item) => void;
+  onComment: (item: Item) => void;
   getHref: (item: Item) => string;
 };
 
@@ -41,12 +41,12 @@ export function ProductItem(props: ProductItemProps) {
       <Flex direction="column" gap={4}>
         {item.author ? (
           <Flex gap={4} align="center">
-            <img
+            <Image
               src={item.author.avatar}
               alt="Author"
               width={34}
               height={34}
-              className={avatarStyle}
+              radius="lg"
             />
             <Flex direction="column">
               <Text size="small">Author</Text>

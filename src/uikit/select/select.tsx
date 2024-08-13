@@ -12,9 +12,9 @@ export type TextProps = SelectHTMLAttributes<HTMLSelectElement> &
   };
 
 export function Select(props: PropsWithChildren<TextProps>) {
-  const { options, ...others } = props;
+  const { options, className, ...others } = props;
   return (
-    <select className={selectStyle()} {...others}>
+    <select className={`${selectStyle()} ${className}`} {...others}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

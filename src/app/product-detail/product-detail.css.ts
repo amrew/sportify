@@ -10,7 +10,3 @@ export const imageStyle = style({
     },
   },
 });
-
-export const avatarStyle = style({
-  borderRadius: "1.2rem",
-});
