@@ -88,7 +88,11 @@ export function ProductItem(props: ProductItemProps) {
         </Flex>
         <Flex full>
           <Flex gap={3} full>
-            <Button size="sm" onClick={() => props.onLike(item)}>
+            <Button
+              aria-label="Like"
+              size="sm"
+              onClick={() => props.onLike(item)}
+            >
               <ThumbsUp size={18} />
             </Button>
             <RWebShare
@@ -99,16 +103,16 @@ export function ProductItem(props: ProductItemProps) {
               }}
               onClick={() => console.log("shared successfully!")}
             >
-              <Button size="sm">
+              <Button aria-label="Share" size="sm">
                 <Share2 size={18} />
               </Button>
             </RWebShare>
-            <Button size="sm">
+            <Button aria-label="Comment" size="sm">
               <MessageCircle size={18} />
             </Button>
           </Flex>
           <Link href={href}>
-            <Button color="primary">
+            <Button aria-label="Read More" color="primary">
               <Media smallMobile={false} mobile tablet desktop>
                 <Text color="white">Read More</Text>
               </Media>

@@ -35,7 +35,11 @@ export function Sidebar(props: SidebarProps) {
               </Text>
             </Flex>
             <Box className={toggleButtonStyle}>
-              <Button size="sm" onClick={() => setIsOpen((prev) => !prev)}>
+              <Button
+                aria-label="Toggle Collapse"
+                size="sm"
+                onClick={() => setIsOpen((prev) => !prev)}
+              >
                 {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               </Button>
             </Box>

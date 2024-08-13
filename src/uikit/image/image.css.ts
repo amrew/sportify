@@ -18,6 +18,6 @@ export const imageStyle = recipe({
       left: { objectPosition: "left" },
       center: { objectPosition: "center" },
     },
-    radius: spreadConfig("radius", radius),
+    radius: spreadConfig("borderRadius", radius),
   },
 });

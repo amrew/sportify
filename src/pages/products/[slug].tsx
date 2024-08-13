@@ -74,7 +74,7 @@ export default function ProductPage(
     <Card>
       <Text weight="bold">Link Pembelian</Text>
       <Flex direction="column" gap={4} mt={4}>
-        <Button full>
+        <Button aria-label="Go to Tokopedia" full>
           <Image
             src="/tokopedia.svg"
             width={100}
@@ -83,7 +83,7 @@ export default function ProductPage(
           />
           <ChevronRight />
         </Button>
-        <Button full>
+        <Button aria-label="Go to shopee" full>
           <Image src="/shopee.svg" width={100} height={32} alt="Shopee Link" />
           <ChevronRight />
         </Button>

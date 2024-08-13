@@ -58,7 +58,7 @@ export function Banner({ items }: BannerProps) {
               </Text>
               <Box mt={4}>
                 <Link href={item.url} target="_blank">
-                  <Button size="sm" color="accent">
+                  <Button size="sm" color="accent" aria-label="Go shopping">
                     {item.buttonText} <ChevronRight />
                   </Button>
                 </Link>

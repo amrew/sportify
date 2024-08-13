@@ -60,6 +60,7 @@ export function Header(props: HeaderProps) {
           <Flex gap={4} align="center">
             {!user ? (
               <Button
+                aria-label="Login with Google"
                 size="sm"
                 onClick={() => {
                   handleLoginWithGoogle();
@@ -71,6 +72,7 @@ export function Header(props: HeaderProps) {
               <Flex gap={4} align="center">
                 <Text>{user.user_metadata?.name}</Text>
                 <Button
+                  aria-label="Logout"
                   size="sm"
                   color="ghost"
                   onClick={() => {
@@ -82,7 +84,14 @@ export function Header(props: HeaderProps) {
               </Flex>
             )}
             <Media smallMobile={false} mobile={false} tablet desktop>
-              <Button size="sm" color="danger">
+              <Button
+                aria-label="Submit Review"
+                size="sm"
+                color="danger"
+                onClick={() => {
+                  alert("not implemented yet");
+                }}
+              >
                 <Text color="white">Submit Review</Text>
                 <LogIn size={16} />
               </Button>

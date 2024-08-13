@@ -100,7 +100,11 @@ export function ProductDetail(props: ProductDetailProps) {
         </Flex>
         <Flex full mt={8}>
           <Flex gap={3} full>
-            <Button size="sm" onClick={() => props.onLike(item)}>
+            <Button
+              aria-label="Like"
+              size="sm"
+              onClick={() => props.onLike(item)}
+            >
               <ThumbsUp size={18} />
             </Button>
             <RWebShare
@@ -111,16 +115,62 @@ export function ProductDetail(props: ProductDetailProps) {
               }}
               onClick={() => console.log("shared successfully!")}
             >
-              <Button size="sm">
+              <Button aria-label="Share" size="sm">
                 <Share2 size={18} />
               </Button>
             </RWebShare>
-            <Button size="sm">
+            <Button aria-label="Comment" size="sm">
               <MessageCircle size={18} />
             </Button>
           </Flex>
         </Flex>
-        <Card></Card>
+        <Box mt={4}>
+          <Card>
+            <Text weight="bold">Comment</Text>
+          </Card>
+          <Flex direction="column" gap={4} ml={8} mt={4}>
+            <Card>
+              <Flex gap={4} align="center">
+                <Image
+                  src="https://avatars.githubusercontent.com/u/4726921?v=4"
+                  alt="Author"
+                  width={34}
+                  height={34}
+                  radius="xl"
+                />
+                <Flex direction="column">
+                  <Text weight="bold">Jhon Doe</Text>
+                </Flex>
+              </Flex>
+              <Box mt={2}>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  ac orci sit amet elit fringilla.
+                </Text>
+              </Box>
+            </Card>
+            <Card>
+              <Flex gap={4} align="center">
+                <Image
+                  src="https://avatars.githubusercontent.com/u/472691?v=4"
+                  alt="Author"
+                  width={34}
+                  height={34}
+                  radius="xl"
+                />
+                <Flex direction="column">
+                  <Text weight="bold">Foo Bar Baz</Text>
+                </Flex>
+              </Flex>
+              <Box mt={2}>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  ac orci sit amet elit fringilla.
+                </Text>
+              </Box>
+            </Card>
+          </Flex>
+        </Box>
       </Flex>
     </Card>
   );
