@@ -37,7 +37,6 @@ export const Default: Story = {
       tags: ["running", "shoes"],
     },
     onLike: () => {},
-    onShare: () => {},
     getHref: () => "/",
   },
 };

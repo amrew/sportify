@@ -12,7 +12,7 @@ import { Text } from "~/uikit/text";
 import { Image } from "~/uikit/image";
 import { Button } from "~/uikit/button";
 import { ChevronRight } from "lucide-react";
-import { useIsMobile } from "~/hooks/useIsMobile";
+import { Layout } from "~/uikit/layout";
 
 type Product = {
   id: number;
@@ -69,31 +69,71 @@ export default function ProductPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const product = props.product;
-  const isMobile = useIsMobile();
 
   const purchaseLinks = (
-    <Box width={!isMobile ? 200 : undefined}>
+    <Card>
+      <Text weight="bold">Link Pembelian</Text>
+      <Flex direction="column" gap={4} mt={4}>
+        <Button full>
+          <Image
+            src="/tokopedia.svg"
+            width={100}
+            height={22}
+            alt="Tokopedia Link"
+          />
+          <ChevronRight />
+        </Button>
+        <Button full>
+          <Image src="/shopee.svg" width={100} height={32} alt="Shopee Link" />
+          <ChevronRight />
+        </Button>
+      </Flex>
+    </Card>
+  );
+
+  const productSpecs = (
+    <Box mb={4}>
       <Card>
-        <Text weight="bold">Link Pembelian</Text>
+        <Text weight="bold" size="large">
+          Informasi Produk
+        </Text>
         <Flex direction="column" gap={4} mt={4}>
-          <Button full>
-            <Image
-              src="/tokopedia.svg"
-              width={100}
-              height={22}
-              alt="Tokopedia Link"
-            />
-            <ChevronRight />
-          </Button>
-          <Button full>
-            <Image
-              src="/shopee.svg"
-              width={100}
-              height={32}
-              alt="Shopee Link"
-            />
-            <ChevronRight />
-          </Button>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Brand</Text>
+            </Box>
+            <Text>Ortuseight</Text>
+          </Flex>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Kategori</Text>
+            </Box>
+            <Text>Running Shoes</Text>
+          </Flex>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Warna</Text>
+            </Box>
+            <Text>Black</Text>
+          </Flex>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Berat</Text>
+            </Box>
+            <Text>240gr</Text>
+          </Flex>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Material</Text>
+            </Box>
+            <Text>Mesh</Text>
+          </Flex>
+          <Flex gap={8}>
+            <Box width={40}>
+              <Text weight="bold">Size</Text>
+            </Box>
+            <Text>39-45</Text>
+          </Flex>
         </Flex>
       </Card>
     </Box>
@@ -102,7 +142,6 @@ export default function ProductPage(
   const productComponent = (
     <ProductDetail
       onLike={() => {}}
-      onShare={() => {}}
       item={{
         id: product.id,
         title: product.name,
@@ -134,17 +173,16 @@ export default function ProductPage(
       </Head>
       <Header />
       <Container>
-        <Flex
-          mt={8}
-          gap={4}
-          pl={4}
-          pr={4}
-          direction={isMobile ? "column" : "row"}
-          full
+        <Layout
+          rightNode={
+            <Box>
+              {productSpecs}
+              {purchaseLinks}
+            </Box>
+          }
         >
           {productComponent}
-          {purchaseLinks}
-        </Flex>
+        </Layout>
       </Container>
       <Footer />
     </>

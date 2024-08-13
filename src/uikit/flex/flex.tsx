@@ -23,9 +23,11 @@ export function Flex(props: PropsWithChildren<FlexProps>) {
     mr,
     mt,
     mb,
+    bg,
+    className,
     ...others
   } = props;
-  const className = flexStyle({
+  const flexClassname = flexStyle({
     direction,
     full,
     justify,
@@ -42,9 +44,10 @@ export function Flex(props: PropsWithChildren<FlexProps>) {
     mr,
     mt,
     mb,
+    bg,
   });
   return (
-    <div className={className} {...others}>
+    <div className={`${flexClassname} ${className}`} {...others}>
       {children}
     </div>
   );

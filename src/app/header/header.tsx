@@ -49,10 +49,10 @@ export function Header(props: HeaderProps) {
           <Flex align="center" full gap={8} pl={2} pr={2} pt={4} pb={4}>
             <Link href="/">
               <img
-                src="/sportify1.png"
+                src="/sportify2.png"
                 alt="Sportify Logo"
                 width={120}
-                height={36}
+                height={44}
               />
             </Link>
           </Flex>

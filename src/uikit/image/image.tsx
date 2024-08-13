@@ -5,11 +5,12 @@ export type ImageProps = ImgHTMLAttributes<HTMLImageElement> &
   Parameters<typeof imageStyle>[0];
 
 export function Image(props: PropsWithChildren<ImageProps>) {
-  const { objectFit, objectPosition, ...others } = props;
+  const { objectFit, objectPosition, className, ...others } = props;
   const [showImage, setShowImage] = useState(true);
+  const imageClassname = imageStyle({ objectFit, objectPosition });
   return showImage ? (
     <img
-      className={imageStyle({ objectFit, objectPosition })}
+      className={`${imageClassname} ${className}`}
       alt={others.alt}
       onError={() => setShowImage(false)}
       {...others}

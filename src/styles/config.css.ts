@@ -80,6 +80,10 @@ const colorProperties = defineProperties({
     color: colors,
     backgroundColor: colors,
     borderColor: colors,
+    borderBottomColor: colors,
+    borderLeftColor: colors,
+    borderRightColor: colors,
+    borderTopColor: colors,
   },
   shorthands: {
     bg: ["backgroundColor"],

@@ -1,6 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { size } from "~/styles/config.css";
+import { colors, size } from "~/styles/config.css";
 import { spreadConfig } from "~/utils/styleUtils";
+import { mediaVariant } from "../media/media.css";
 
 export const flexStyle = recipe({
   base: {
@@ -47,6 +48,7 @@ export const flexStyle = recipe({
     mr: spreadConfig("marginRight", size),
     mt: spreadConfig("marginTop", size),
     mb: spreadConfig("marginBottom", size),
+    bg: spreadConfig("backgroundColor", colors),
   },
   defaultVariants: {
     direction: "row",

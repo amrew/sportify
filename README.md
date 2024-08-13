@@ -1,14 +1,14 @@
 # Project Overview
 
-The project is named "sportify" and is currently in version "0.1.0." It is a private project and utilizes the Next.js framework, focusing on server-side rendering (SSR) and static site generation (SSG). The project is designed to create a modern, interactive sports-related web application.
+The project is named "sportify" and is currently in version "0.1.0." It is a private project and utilizes the Next.js framework, focusing on server-side rendering (SSR) and static site generation (SSG).
+
+The purpose of this web is to review products and provide affiliate links. It is designed to create a modern, interactive sports-related web application.
 
 ## Tech Stack
 
 - **Next.js**: This is the core framework used, enabling both server-side rendering and static site generation. It simplifies building React applications with optimized performance and SEO capabilities.
 
 - **React**: The frontend is built using React, a JavaScript library for creating user interfaces, particularly single-page applications.
-
-- **Supabase**: Supabase is integrated for backend functionalities, particularly for authentication and database management. It serves as a real-time, open-source alternative to Firebase.
 
 - **Vanilla Extract**: Vanilla Extract is a CSS preprocessor that leverages TypeScript instead of traditional CSS or Sass syntax. It allows you to write your styles in TypeScript, enabling you to take advantage of TypeScript's type safety, autocompletion, and modularity. This approach makes it easier to manage and scale your styles, especially in large applications. Vanilla Extract compiles your TypeScript-based styles into static CSS at build time, ensuring zero runtime overhead and maintaining a high-performance user experience.
 
@@ -17,6 +17,8 @@ The project is named "sportify" and is currently in version "0.1.0." It is a pri
 - **TypeScript**: TypeScript is used for static typing, which improves code quality and developer productivity by catching errors early in the development process.
 
 - **ESLint**: ESLint is used for maintaining code quality and enforcing coding standards.
+
+- **Supabase**: Supabase is integrated for backend functionalities, particularly for authentication and database management.
 
 ## How to Run the Project
 

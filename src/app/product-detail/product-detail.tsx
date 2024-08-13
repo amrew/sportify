@@ -1,14 +1,13 @@
-import { MessageCircle, Share2, ThumbsUp } from "lucide-react";
+import { Car, MessageCircle, Share2, ThumbsUp } from "lucide-react";
 import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { Tag } from "~/uikit/tag";
-import { avatarStyle } from "./product-detail.css";
+import { avatarStyle, imageStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
-import { useIsMobile } from "~/hooks/useIsMobile";
 import { RWebShare } from "react-web-share";
 import getConfig from "next/config";
 
@@ -32,13 +31,11 @@ export type DetailItem = {
 type ProductDetailProps = {
   item: DetailItem;
   onLike: (item: DetailItem) => void;
-  onShare: (item: DetailItem) => void;
 };
 
 export function ProductDetail(props: ProductDetailProps) {
   const { item } = props;
   const images = [item.imageUrl, ...item.additionalImageUrls];
-  const isMobile = useIsMobile();
   return (
     <Card>
       <Flex direction="column" gap={4} full>
@@ -58,7 +55,7 @@ export function ProductDetail(props: ProductDetailProps) {
           </Flex>
         ) : null}
         {images.length > 1 ? (
-          <Box style={{ maxWidth: 520 }}>
+          <Box style={{ maxWidth: 600 }}>
             <div className="slide-container">
               <Slide autoplay={false}>
                 {images.map((imageUrl, index) => (
@@ -67,7 +64,7 @@ export function ProductDetail(props: ProductDetailProps) {
                       src={imageUrl}
                       alt={item.title}
                       width="100%"
-                      height={isMobile ? 320 : 400}
+                      className={imageStyle}
                       objectFit="contain"
                     />
                   </Box>
@@ -86,7 +83,7 @@ export function ProductDetail(props: ProductDetailProps) {
             />
           </Box>
         )}
-        <Text size="xlarge" weight="bold">
+        <Text size="xxlarge" weight="bold">
           {item.title}
         </Text>
         {item.tags ? (
@@ -114,15 +111,16 @@ export function ProductDetail(props: ProductDetailProps) {
               }}
               onClick={() => console.log("shared successfully!")}
             >
-              <Button size="sm" onClick={() => props.onShare(item)}>
+              <Button size="sm">
                 <Share2 size={18} />
               </Button>
             </RWebShare>
-            <Button size="sm" onClick={() => props.onShare(item)}>
+            <Button size="sm">
               <MessageCircle size={18} />
             </Button>
           </Flex>
         </Flex>
+        <Card></Card>
       </Flex>
     </Card>
   );

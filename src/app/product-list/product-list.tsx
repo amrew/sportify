@@ -18,9 +18,6 @@ export function ProductList(props: ProductListProps) {
   const onLike = (item: Item) => {
     console.log("Liked", item);
   };
-  const onShare = (item: Item) => {
-    console.log("Shared", item);
-  };
   const getHref = (item: Item) => {
     return `/products/${item.slug}`;
   };
@@ -29,7 +26,9 @@ export function ProductList(props: ProductListProps) {
       <div className={filterContainerStyle}>
         <Flex align="center" gap={4} pl={6} pr={6}>
           <Flex full>
-            <Text size="xlarge">Product Review</Text>
+            <Text size="xxlarge" weight="bold">
+              Product Review
+            </Text>
           </Flex>
           {props.showSort ? (
             <Flex gap={4} align="center">
@@ -68,7 +67,6 @@ export function ProductList(props: ProductListProps) {
             key={item.id}
             item={item}
             onLike={onLike}
-            onShare={onShare}
             getHref={getHref}
           />
         ))}

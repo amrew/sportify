@@ -53,7 +53,7 @@ export function Banner({ items }: BannerProps) {
               <Text color="white" size="xxlarge" textAlign="center">
                 {item.title}
               </Text>
-              <Text color="white" size="large">
+              <Text color="white" size="large" textAlign="center">
                 {item.subtitle}
               </Text>
               <Box mt={4}>

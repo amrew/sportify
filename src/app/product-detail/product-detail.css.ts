@@ -1,10 +1,13 @@
 import { style } from "@vanilla-extract/css";
 
 export const imageStyle = style({
-  objectFit: "cover",
-  transition: "all 0.3s",
-  ":hover": {
-    transform: "scale(1.02)",
+  "@media": {
+    "(max-width: 767px)": {
+      height: 320,
+    },
+    "(min-width: 768px)": {
+      height: 400,
+    },
   },
 });
 

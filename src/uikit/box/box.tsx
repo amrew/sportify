@@ -30,9 +30,10 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     bg,
     display,
     width,
+    className,
     ...others
   } = props;
-  const className = boxStyle({
+  const boxClassname = boxStyle({
     direction,
     full,
     justify,
@@ -59,7 +60,7 @@ export function Box(props: PropsWithChildren<BoxProps>) {
     width,
   });
   return (
-    <div className={className} {...others}>
+    <div className={`${boxClassname} ${className}`} {...others}>
       {children}
     </div>
   );

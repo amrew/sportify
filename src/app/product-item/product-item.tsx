@@ -3,7 +3,7 @@ import { Button } from "~/uikit/button";
 import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
-import { avatarStyle, imageStyle } from "./product-item.css";
+import { avatarStyle } from "./product-item.css";
 import { Tag } from "~/uikit/tag";
 import { Media } from "~/uikit/media";
 import { Link } from "~/uikit/link";
@@ -30,7 +30,6 @@ export type Item = {
 export type ProductItemProps = {
   item: Item;
   onLike: (item: Item) => void;
-  onShare: (item: Item) => void;
   getHref: (item: Item) => string;
 };
 
@@ -100,11 +99,11 @@ export function ProductItem(props: ProductItemProps) {
               }}
               onClick={() => console.log("shared successfully!")}
             >
-              <Button size="sm" onClick={() => props.onShare(item)}>
+              <Button size="sm">
                 <Share2 size={18} />
               </Button>
             </RWebShare>
-            <Button size="sm" onClick={() => props.onShare(item)}>
+            <Button size="sm">
               <MessageCircle size={18} />
             </Button>
           </Flex>
