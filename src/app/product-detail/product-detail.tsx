@@ -4,7 +4,7 @@ import { Card } from "~/uikit/card";
 import { Flex } from "~/uikit/flex/flex";
 import { Text } from "~/uikit/text";
 import { Tag } from "~/uikit/tag";
-import { imageStyle } from "./product-detail.css";
+import { imageContainerStyle, imageStyle } from "./product-detail.css";
 import { Image } from "~/uikit/image";
 import { Slide } from "react-slideshow-image";
 import { Box } from "~/uikit/box";
@@ -69,7 +69,7 @@ export function ProductDetail(props: ProductDetailProps) {
           </Flex>
         ) : null}
         {images.length > 1 ? (
-          <Box style={{ maxWidth: 600 }}>
+          <Box className={imageContainerStyle}>
             <div className="slide-container">
               <Slide autoplay={false}>
                 {images.map((imageUrl, index) => (
