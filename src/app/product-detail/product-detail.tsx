@@ -145,7 +145,7 @@ export function ProductDetail(props: ProductDetailProps) {
           <Flex direction="column" gap={4} ml={8} mt={4}>
             {comments.length === 0 && <Text>No comments yet</Text>}
             {comments.map((comment) => (
-              <Card>
+              <Card key={comment.id}>
                 <Flex gap={4} align="center">
                   <Image
                     src={comment.user.picture}
